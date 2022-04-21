@@ -1,0 +1,27 @@
+.login {
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+    
+}
+
+.titulo {
+    text-align: center;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.tag {
+    width: 95%;
+}
+
+.Spinner {
+    margin: 0 auto;
+}
+
+/* You can add global styles to this file, and also import other style files */
