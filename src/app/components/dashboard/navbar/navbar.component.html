@@ -1,0 +1,19 @@
+  <div class="Navbar">
+
+    <div class="labelTitle">
+      <b><p style="font-size:200%">DnD Maker</p></b>
+    </div>
+
+    <div class="empty"></div>
+
+    <div class="tools">
+    <mat-toolbar color="white" style="border-bottom-left-radius: 12%;border-bottom-right-radius: 12%;opacity: 0.75;">
+        <span class="example-spacer"></span>
+      <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect" style="border-radius:5px">{{item.nombre}}</button>
+      <span class="example-spacer"></span>
+      <button routerLink='' mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon style="font-size:100%">logout</mat-icon>
+          </button>
+      </mat-toolbar>
+    </div>
+</div>

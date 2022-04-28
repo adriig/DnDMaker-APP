@@ -1,0 +1,45 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.labelTitle {
+  line-height:400%;
+  margin-left: 6%;
+  width: 9%;
+  background-color: rgba(240, 68, 38, 0.904);
+  text-align: center;
+  font-family: 'Aclonica';
+  color: whitesmoke;
+  border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 15%;
+}
+
+.Navbar {
+  display: flex;
+  flex-flow: row wrap;
+  height: 0px;
+  
+}
+
+.empty {
+  width: 35%;
+}
+
+.tools {
+  align-items: right;
+  display: flex;
+}
+
+.mat-button.mat-primary .mat-button-focus-overlay {
+  background-color: transparent;
+}
+
+button {
+  font-size:175%;
+  background-color: whitesmoke;
+  transition: background-color .5s;
+}
+
+button:hover {
+  background-color: red;
+}

@@ -1,0 +1,18 @@
+[
+    {
+        "nombre": "Forum",
+        "redirect": "/dashboard/"
+    },
+    {
+        "nombre": "Characters",
+        "redirect": "/dashboard/characters"
+    },
+    {
+        "nombre": "Games",
+        "redirect": "/dashboard/games"
+    },
+    {
+        "nombre": "Guides",
+        "redirect": "/dashboard/guides"
+    }
+]
