@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { ForumComponent } from './forum/forum.component';
 import { GamesComponent } from './games/games.component';
 import { GuidesComponent } from './guides/guides.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
