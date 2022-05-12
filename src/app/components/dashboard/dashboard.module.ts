@@ -11,6 +11,10 @@ import { GuidesComponent } from './guides/guides.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CharactersComponent } from './characters/characters.component';
 
+import { AuthenticationButtonComponent } from './login/authentication-button/authentication-button.component';
+import { LoginButtonComponent } from './login/login-button/login-button.component';
+import { LogoutButtonComponent } from './login/logout-button/logout-button.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { CharactersComponent } from './characters/characters.component';
     GamesComponent,
     GuidesComponent,
     ProfileComponent,
-    CharactersComponent
+    CharactersComponent,
+    AuthenticationButtonComponent,
+    LoginButtonComponent,
+    LogoutButtonComponent
   ],
   imports: [
     CommonModule,

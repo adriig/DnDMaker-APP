@@ -1,8 +1,0 @@
-<div *ngIf="auth.isLoading$ | async; else loaded">
-    <p>Cargando...</p>
-  </div>
-  
-  
-  <ng-template #loaded>
-    <router-outlet></router-outlet>
-  </ng-template>
