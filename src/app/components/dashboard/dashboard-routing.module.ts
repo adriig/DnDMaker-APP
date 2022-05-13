@@ -20,7 +20,8 @@ const routes: Routes = [
     { path: '', component: LogoutButtonComponent},
     { path: 'games', component: GamesComponent},
     { path: 'characters', component: CharactersComponent},
-    { path: 'guides', component: GuidesComponent}
+    { path: 'guides', component: GuidesComponent},
+    { path: 'profile', component: ProfileComponent},
   ]}
 ];
 

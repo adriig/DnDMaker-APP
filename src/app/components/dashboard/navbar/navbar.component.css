@@ -43,3 +43,7 @@ button {
 button:hover {
   background-color: red;
 }
+
+.profiler {
+  margin-left: 1%;
+}

@@ -11,9 +11,15 @@
         <span class="example-spacer"></span>
       <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect" style="border-radius:5px">{{item.nombre}}</button>
       <span class="example-spacer"></span>
-      <button routerLink='' mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-          <app-authentication-button></app-authentication-button>
+      <app-authentication-button></app-authentication-button>
+
+      
+      <div *ngIf="auth.isAuthenticated$ | async" class="profiler">
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon" [routerLink]="'/dashboard/profile'">
+            <mat-icon>account_circle</mat-icon>
           </button>
+      </div>
+  
       </mat-toolbar>
     </div>
 </div>
