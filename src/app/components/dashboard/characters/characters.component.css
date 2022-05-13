@@ -1,5 +1,5 @@
 .Spacer {
-    height: 10%;
+    height: 5%;
 }
 
 .contorno {
@@ -9,3 +9,39 @@
     background-size: cover;
     object-position: -100% 0;
 }
+
+.ListBubbles {
+    margin-left: 20%;
+    margin-right: 20%;
+    height: auto;
+    background: rgba(42, 44, 42, 0.822);
+    border: black 3px solid;
+}
+
+.TitleBubbles {
+    text-align: center;
+    font-size:x-large;
+    color: rgb(253, 47, 47);
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  th {
+    width: 5%;
+  }
+  
+  .pointer{
+    cursor: pointer;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }

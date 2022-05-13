@@ -4,3 +4,23 @@
     justify-content: center;
     width: 50%;
   }
+
+button {
+  font-size:175%;
+  background-color: whitesmoke;
+  transition: background-color .5s;
+}
+
+button:hover {
+  background-color: red;
+}
+
+.mat-button.mat-primary .mat-button-focus-overlay {
+  background-color: transparent;
+}
+
+button {
+  font-size:175%;
+  background-color: whitesmoke;
+  transition: background-color .5s;
+}
