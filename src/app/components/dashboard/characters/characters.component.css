@@ -10,6 +10,19 @@
     object-position: -100% 0;
 }
 
+.ListadoPersonajes {
+  height: auto;
+  background: rgba(42, 44, 42, 0.822);
+  border-top: black 3px solid;
+}
+
+.TituloPersonajes {
+  height: auto;
+  font-size: large;
+  background: rgba(42, 44, 42, 0.822);
+  border-bottom: black 3px solid;
+}
+
 .ListBubbles {
     margin-left: 20%;
     margin-right: 20%;
@@ -45,3 +58,5 @@ table {
   .example-spacer {
     flex: 1 1 auto;
   }
+
+  

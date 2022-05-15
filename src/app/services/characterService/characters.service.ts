@@ -6,7 +6,7 @@ import { Personaje } from '../../models/character/character'
   providedIn: 'root'
 })
 export class CharactersService {
-  url='http://localhost:3000/Characters/get/'
+  url='http://localhost:3000'
   constructor(private http: HttpClient) { }
   getCharacters(): Observable<any> {
     return this.http.get(`${this.url}/characters/get`);
