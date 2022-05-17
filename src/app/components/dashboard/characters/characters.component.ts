@@ -13,8 +13,8 @@ import { MatSort } from '@angular/material/sort';
 })
 export class CharactersComponent implements OnInit {
   listCharaceters: Personaje[] = [];
-
-  displayedColumns = ['Nombre', 'Raza', 'Clase'];
+  listMyCharacters: Personaje[] = [];
+  displayedColumns = ['Nombre', 'Raza', 'Clase', 'Metodos'];
   dataSource!: MatTableDataSource<any>;
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -27,6 +27,11 @@ export class CharactersComponent implements OnInit {
       this.listCharaceters=data,
       this.dataSource = new MatTableDataSource (this.listCharaceters);
     })
+
+    // this._characterService.getMyCharacters().subscribe(data => {
+    //   this.listMyCharacters=data,
+    //   this.dataSource = new MatTableDataSource (this.listMyCharacters);
+    // })
   }
 
   applyFilter(event: Event) {

@@ -11,4 +11,12 @@ export class CharactersService {
   getCharacters(): Observable<any> {
     return this.http.get(`${this.url}/characters/get`);
   }
+
+  searchCharacter(id: number): Observable<any> {
+    return this.http.get(`${this.url}/characters/search/${id}`);
+  }
+
+  getMyCharacters(idOwner: number): Observable<any> {
+    return this.http.get(`${this.url}/characters/getmy/${idOwner}`);
+  }
 }

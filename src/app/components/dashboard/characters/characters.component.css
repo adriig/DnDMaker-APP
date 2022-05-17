@@ -1,62 +1,102 @@
 .Spacer {
-    height: 5%;
+  height: 5%;
 }
 
 .contorno {
-    height: 100%;
-    background-image: url("../../../../assets/files/characters.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-position: -100% 0;
+  height: 100%;
+  background-image: url("../../../../assets/files/characters.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-position: -100% 0;
 }
 
 .ListadoPersonajes {
   height: auto;
-  background: rgba(42, 44, 42, 0.822);
-  border-top: black 3px solid;
+  background: rgba(42, 44, 42);
 }
 
 .TituloPersonajes {
   height: auto;
   font-size: large;
-  background: rgba(42, 44, 42, 0.822);
+  background: rgba(42, 44, 42);
   border-bottom: black 3px solid;
 }
 
+.Letras {
+  font-size: medium;
+  color: whitesmoke;
+}
+
+.LetrasTitle {
+  font-size: medium;
+  color: rgb(253, 47, 47);
+}
+
+.BotonCreate {
+  color: whitesmoke;
+  background-color: rgb(253, 47, 47);
+}
+
+
 .ListBubbles {
-    margin-left: 20%;
-    margin-right: 20%;
-    height: auto;
-    background: rgba(42, 44, 42, 0.822);
-    border: black 3px solid;
+  display: block;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: auto;
+  background: rgba(42, 44, 42);
+  border: black 3px solid;
+}
+
+.TitleGen {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: rgba(42, 44, 42);
 }
 
 .TitleBubbles {
-    text-align: center;
-    font-size:x-large;
-    color: rgb(253, 47, 47);
+  background-color:rgba(42, 44, 42);
+  display: block;
+  width: 85%;
+  text-align: center;
+  font-size: x-large;
+  color: rgb(253, 47, 47);
+}
+
+.TituloGen {
+  text-align: center;
+  font-size: x-large;
+  color: rgb(253, 47, 47);
+}
+
+.ButtonCreate {
+  width: 15%;
+  display: block;
+  text-align: right;
+  margin-right: 1%;
+  font-size: large;
+  color: rgba(42, 44, 42);
+  background-color: rgba(42, 44, 42);
 }
 
 table {
-    width: 100%;
-    margin-top: 10px;
-  }
-  
-  th {
-    width: 5%;
-  }
-  
-  .pointer{
-    cursor: pointer;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
+  width: 100%;
+  margin-top: 10px;
+}
 
-  .example-spacer {
-    flex: 1 1 auto;
-  }
+th {
+  width: 5%;
+}
 
-  
+.pointer {
+  cursor: pointer;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

@@ -14,6 +14,8 @@ import { CharactersComponent } from './characters/characters.component';
 import { AuthenticationButtonComponent } from './login/authentication-button/authentication-button.component';
 import { LoginButtonComponent } from './login/login-button/login-button.component';
 import { LogoutButtonComponent } from './login/logout-button/logout-button.component';
+import { CheckComponent } from './characters/check/check.component';
+import { CreateComponent } from './characters/create/create.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { LogoutButtonComponent } from './login/logout-button/logout-button.compo
     CharactersComponent,
     AuthenticationButtonComponent,
     LoginButtonComponent,
-    LogoutButtonComponent
+    LogoutButtonComponent,
+    CheckComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,

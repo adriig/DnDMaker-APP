@@ -5,3 +5,35 @@
     background-size: cover;
     object-position: -100% 0;
 }
+
+.Spacer {
+    height: 5%;
+}
+
+.Spacer2 {
+    width: 8%;
+}
+
+.ContornoBloques {
+    display: flex;
+    height: 30%;
+}
+
+.Bloques {
+    display: flex;
+    background-color: aliceblue;
+    margin-right: 5%;
+    margin-left: 5%;
+    width: 15%;
+}
+
+.Bloque1 {
+    margin-right: 5%;
+    margin-left: 5%;
+    display: flex;
+    width: 15%;
+    background-color: yellow;
+    background-image: url("../../../../assets/files/Create-Character.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

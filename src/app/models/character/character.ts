@@ -9,6 +9,8 @@ export class Personaje {
     public _id: number
     public _NombrePersonaje: string;
     public _Alineacion: string;
+    public _Lore: string;
+    public _IdOwner: string;
     public _Personalidad: string;
     public _Raza: Raza;
     public _Clase: Clase;
@@ -16,10 +18,12 @@ export class Personaje {
     public _Estadisticas: Estadisticas;
     public _Habilidades: Habilidades;
 
-    public constructor(id: number, NombrePersonaje: string, Alineacion: string, Personalidad: string, Raza: Raza, Clase: Clase, Hechizos: Hechizos, Estadisticas: Estadisticas, Habilidades: Habilidades) {
+    public constructor(id: number, NombrePersonaje: string, Alineacion: string, Lore: string, IdOwner: string, Personalidad: string, Raza: Raza, Clase: Clase, Hechizos: Hechizos, Estadisticas: Estadisticas, Habilidades: Habilidades) {
         this._id=id
         this._NombrePersonaje=NombrePersonaje;
         this._Alineacion = Alineacion;
+        this._Lore = Lore;
+        this._IdOwner = IdOwner;
         this._Personalidad = Personalidad;
         this._Raza = Raza;
         this._Clase = Clase;

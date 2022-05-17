@@ -10,7 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationButtonComponent } from './login/authentication-button/authentication-button.component'
 import { LoginButtonComponent } from './login/login-button/login-button.component'
 import { LogoutButtonComponent } from './login/logout-button/logout-button.component'
-
+import { CheckComponent } from './characters/check/check.component'
+import { CreateComponent } from './characters/create/create.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
@@ -20,6 +21,8 @@ const routes: Routes = [
     { path: '', component: LogoutButtonComponent},
     { path: 'games', component: GamesComponent},
     { path: 'characters', component: CharactersComponent},
+    { path: 'characters/detail/:id', component: CheckComponent},
+    { path: 'characters/create', component: CreateComponent},
     { path: 'guides', component: GuidesComponent},
     { path: 'profile', component: ProfileComponent},
   ]}
