@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -37,8 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatCheckboxModule,
     FormsModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    MatPaginatorModule,
   ], exports: [
     CommonModule,
     MatSliderModule,
@@ -56,7 +56,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatCheckboxModule,
     FormsModule,
-    ReactiveFormsModule
+    MatPaginatorModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

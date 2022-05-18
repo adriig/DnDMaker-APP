@@ -4,8 +4,6 @@ import { Router  } from '@angular/router';
 import { Personaje } from 'src/app/models/character/character'
 import { CharactersService } from 'src/app/services/characterService/characters.service'
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
@@ -17,8 +15,6 @@ export class CharactersComponent implements OnInit {
   displayedColumns = ['Nombre', 'Raza', 'Clase', 'Metodos'];
   dataSource!: MatTableDataSource<any>;
   
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(public auth: AuthService, private _characterService: CharactersService, private _changeDetectorRefs: ChangeDetectorRef, private _router: Router) { }
 

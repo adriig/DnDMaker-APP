@@ -4,17 +4,79 @@
     <div class="Spacer"></div>
 
 
-    <div class="ListBubbles" *ngIf="auth.isAuthenticated$ | async">
+    <div class="inputs" *ngIf="auth.isAuthenticated$ | async">
+      <input matInput (keyup)="applyFilter($event)" class="character-filter" placeholder="Filter" style="text-align: left;" #input />
+      <button class="character-button" routerLink="create">CREATE CHARACTER</button>
+    </div>
+
+    <div class="container">
+      <h1 class="title">YOUR CHARACTERS</h1>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="ListadoPersonajes">
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">NAME</th>
+          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._NombrePersonaje }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Raza">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">RACE</th>
+          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Raza }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Clase">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">CLASS</th>
+          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Clase }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Metodos">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let Characters;" style="text-align: right">
+          <span class="material-icons" routerLink="detail/{{Characters._id}}">search</span>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+       </table>
+    </div>
     <br>
 
-    <div class="TitleGen">
+    <div class="container">
+      <h1 class="title">ALL CHARACTERS</h1>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="ListadoPersonajes">
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">NAME</th>
+          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._NombrePersonaje }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Raza">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">RACE</th>
+          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Raza }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Clase">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">CLASS</th>
+          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Clase }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Metodos">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let Characters;" style="text-align: right">
+          <span class="material-icons" routerLink="detail/{{Characters._id}}">search</span>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+       </table>
+    </div>
+
+    <!-- <div class="TitleGen">
     <div class="ButtonCreate"></div>
-    <div class="TitleBubbles"> <p class="TituloGen">Your Characters</p></div>
+    <div class="Spacer"></div>
+    <div class="TitleBubbles"> <p class="TituloGen"><b>YOUR CHARACTERS</b></p></div>
     <div class="ButtonCreate"><button mat-raised-button color="primary" class="BotonCreate" routerLink="create">Create Character</button></div></div>
 
     <mat-form-field appearance="standard">
         <mat-label><b>Filter</b></mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input />
+        <input matInput (keyup)="applyFilter($event)" class="character-filter" placeholder="Filter" #input />
       </mat-form-field>
       <div class="mat-elevation-z6">
        
@@ -44,17 +106,20 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
          </table>
          
+         
+
         </div>
     </div>
 
-    <div class="Spacer" *ngIf="auth.isAuthenticated$ | async"></div>
+    <div class="Spacer"></div>
 
     
     <div class="ListBubbles">
       <br>
       <div class="TitleGen">
         <div class="ButtonCreate"></div>
-        <div class="TitleBubbles"> <p class="TituloGen">Your Characters</p></div>
+        <div class="TitleBubbles"> <p class="TituloGen"><b>ALL CHARACTERS</b></p></div>
+        
         <div class="ButtonCreate"><button mat-raised-button color="primary" class="BotonCreate" routerLink="create">Create Character</button></div></div>
     <mat-form-field appearance="standard">
       <mat-label><b>Filter</b></mat-label>
@@ -88,4 +153,4 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
        </table>
     </div>
-</div>
+</div> -->

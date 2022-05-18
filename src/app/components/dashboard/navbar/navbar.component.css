@@ -4,11 +4,10 @@
 
 .labelTitle {
   line-height:400%;
-  margin-left: 6%;
+  margin-left: 10%;
   width: 9%;
-  background-color: rgba(240, 68, 38, 0.904);
+  background-color: rgb(253, 47, 47);
   text-align: center;
-  font-family: 'Aclonica';
   color: whitesmoke;
   border-bottom-left-radius: 15%;
   border-bottom-right-radius: 15%;

@@ -3,27 +3,17 @@
     <div class="Spacer"></div>
     <div class="Spacer"></div>
 
+
+    <div class="ListBubbles">
+    <div class="TitleGen">
+      
+      <div class="TitleBubbles"> <p class="TituloGen"><b>CREATE YOUR CHARACTER</b></p></div>
+      
     <div class="container mt-5">
         <div class="row">
-          <div class="container col-4">
+          <div class="container col-4" style="text-align:center">
             <form class="mt-3" [formGroup]="characterForm" (ngSubmit)="crearCharacter()">
-              <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="id"
-                  class="form-control form-control-lg"
-                  placeholder="ID del character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('id')?.hasError('required') &&
-                  characterForm.get('id')?.touched
-                  "
-                >
-                  <span>Introduzca el Id</span>
-                </div>
-              </div>
+
               <div class="mb-2">
                 <input
                   type="text"
@@ -80,32 +70,12 @@
                 </div>
               </div>
 
-
-              <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="IdOwner"
-                  class="form-control form-control-lg"
-                  placeholder="IdOwner del character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('IdOwner')?.hasError('required') &&
-                  characterForm.get('IdOwner')?.touched
-                  "
-                >
-                  <span>Inserte IdOwner</span>
-                </div>
-              </div>
-
-
               <div class="mb-2">
                 <input
                   type="text"
                   formControlName="Personalidad"
                   class="form-control form-control-lg"
-                  placeholder="Nota media del movil"
+                  placeholder="Personalidad del personaje"
                 />
                 <div
                   class="text-danger"
@@ -209,6 +179,7 @@
                   <span>Inserte los Habilidades</span>
                 </div>
               </div>
+
               <div style="text-align:center">
                 <button
                   type="submit"
@@ -223,3 +194,5 @@
           </div>
         </div>
       </div>
+      </div>
+    </div>
