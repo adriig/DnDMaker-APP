@@ -31,7 +31,7 @@ import { CreateComponent } from './characters/create/create.component';
     LoginButtonComponent,
     LogoutButtonComponent,
     CheckComponent,
-    CreateComponent
+    CreateComponent,
   ],
   imports: [
     CommonModule,

@@ -11,6 +11,7 @@ import { AuthenticationButtonComponent } from './login/authentication-button/aut
 import { LoginButtonComponent } from './login/login-button/login-button.component'
 import { LogoutButtonComponent } from './login/logout-button/logout-button.component'
 import { CheckComponent } from './characters/check/check.component'
+
 import { CreateComponent } from './characters/create/create.component';
 
 const routes: Routes = [

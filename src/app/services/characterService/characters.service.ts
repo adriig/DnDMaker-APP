@@ -19,4 +19,9 @@ export class CharactersService {
   getMyCharacters(idOwner: number): Observable<any> {
     return this.http.get(`${this.url}/characters/getmy/${idOwner}`);
   }
+
+  addCharacter (Character: Personaje) {
+    console.log(Character)
+    return this.http.post(`${this.url}/characters/add/`, Character);
+  }
 }

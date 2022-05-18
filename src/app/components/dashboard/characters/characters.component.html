@@ -49,10 +49,14 @@
 
     <div class="Spacer" *ngIf="auth.isAuthenticated$ | async"></div>
 
+    
     <div class="ListBubbles">
-    <br>
-    <p class="TitleBubbles">All Characters</p>
-    <!-- <mat-form-field appearance="standard">
+      <br>
+      <div class="TitleGen">
+        <div class="ButtonCreate"></div>
+        <div class="TitleBubbles"> <p class="TituloGen">Your Characters</p></div>
+        <div class="ButtonCreate"><button mat-raised-button color="primary" class="BotonCreate" routerLink="create">Create Character</button></div></div>
+    <mat-form-field appearance="standard">
       <mat-label><b>Filter</b></mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input />
     </mat-form-field>
@@ -82,9 +86,6 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-       </table> 
-       
-      </div>
-  </div>-->
+       </table>
     </div>
 </div>
