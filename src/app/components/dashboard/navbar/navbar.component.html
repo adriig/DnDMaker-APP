@@ -1,15 +1,18 @@
   <div class="Navbar">
 
+    <div class="titulo">
+
     <div class="labelTitle">
       <b><p style="font-size:200%">DnD Maker</p></b>
     </div>
 
     <div class="empty"></div>
-
     <div class="tools">
     <mat-toolbar color="white" style="border-bottom-left-radius: 12%;border-bottom-right-radius: 12%;opacity: 0.75;">
         <span class="example-spacer"></span>
-      <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect" style="border-radius:5px;">{{item.nombre}}</button>
+      <div *ngFor="let item of menu">
+        <button mat-button [routerLink]="item.redirect" style="border-radius:5px;">{{item.nombre}}</button>
+      </div>
       <span class="example-spacer"></span>
       <app-authentication-button></app-authentication-button>
 
@@ -22,4 +25,5 @@
   
       </mat-toolbar>
     </div>
+  </div>
 </div>

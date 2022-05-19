@@ -4,14 +4,14 @@
     <div class="Spacer"></div>
 
 
-    <div class="inputs" *ngIf="auth.isAuthenticated$ | async">
+    <div class="inputs">
       <input matInput (keyup)="applyFilter($event)" class="character-filter" placeholder="Filter" style="text-align: left;" #input />
-      <button class="character-button" routerLink="create">CREATE CHARACTER</button>
+      <button class="character-button" routerLink="create"  *ngIf="auth.isAuthenticated$ | async">CREATE CHARACTER</button>
     </div>
 
-    <div class="container">
+    <div class="container"  *ngIf="auth.isAuthenticated$ | async">
       <h1 class="title">YOUR CHARACTERS</h1>
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="ListadoPersonajes">
+      <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8" class="ListadoPersonajes">
         <ng-container matColumnDef="Nombre">
           <th mat-header-cell *matHeaderCellDef class="LetrasTitle">NAME</th>
           <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._NombrePersonaje }}</td>
@@ -31,6 +31,9 @@
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let Characters;" style="text-align: right">
           <span class="material-icons" routerLink="detail/{{Characters._id}}">search</span>
+          <a class="pointer" (click)="deleteCharacter(Characters._id)" matTooltip="Eliminar Usuario">
+            <mat-icon>delete</mat-icon>
+          </a>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

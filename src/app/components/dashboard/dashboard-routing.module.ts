@@ -14,6 +14,8 @@ import { CheckComponent } from './characters/check/check.component'
 
 import { CreateComponent } from './characters/create/create.component';
 
+import { ResourcesComponent } from './resources/resources.component'
+
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
     { path: '', component: ForumComponent},
@@ -26,6 +28,7 @@ const routes: Routes = [
     { path: 'characters/create', component: CreateComponent},
     { path: 'guides', component: GuidesComponent},
     { path: 'profile', component: ProfileComponent},
+    { path: 'resources', component: ResourcesComponent }
   ]}
 ];
 

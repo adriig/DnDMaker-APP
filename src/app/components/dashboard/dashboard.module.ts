@@ -16,6 +16,7 @@ import { LoginButtonComponent } from './login/login-button/login-button.componen
 import { LogoutButtonComponent } from './login/logout-button/logout-button.component';
 import { CheckComponent } from './characters/check/check.component';
 import { CreateComponent } from './characters/create/create.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { CreateComponent } from './characters/create/create.component';
     LogoutButtonComponent,
     CheckComponent,
     CreateComponent,
+    ResourcesComponent,
   ],
   imports: [
     CommonModule,

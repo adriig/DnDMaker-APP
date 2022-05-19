@@ -1,18 +1,27 @@
 [
     {
         "nombre": "Forum",
-        "redirect": "/dashboard/"
+        "redirect": "/dashboard/",
+        "type": "Simple"
     },
     {
         "nombre": "Characters",
-        "redirect": "/dashboard/characters"
+        "redirect": "/dashboard/characters",
+        "type": "Simple"
     },
     {
         "nombre": "Games",
-        "redirect": "/dashboard/games"
+        "redirect": "/dashboard/games",
+        "type": "Simple"
     },
     {
-        "nombre": "Guides",
-        "redirect": "/dashboard/guides"
+        "nombre": "Resources",
+        "redirect": "/dashboard/resources",
+        "type": "Complex",
+        "subdir": [
+            {"nombre": "classes", "redirect": "/dashboard/resources/classes"},
+            {"nombre": "races", "redirect": "/dashboard/resources/races"},
+            {"nombre": "weapons", "redirect": "/dashboard/resources/weapons"}
+        ]
     }
 ]

@@ -1,0 +1,14 @@
+.Spacer {
+    height: 5%;
+  }
+  
+  .contorno {
+    height: 100%;
+    background-image: url("../../../../assets/files/characters.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    object-position: -100% 0;
+  }
+ 
