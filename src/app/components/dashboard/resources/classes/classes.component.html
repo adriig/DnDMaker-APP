@@ -6,40 +6,29 @@
 
     <div class="inputs">
       <input matInput (keyup)="applyFilter($event)" class="character-filter" placeholder="Filter" style="text-align: left;" #input />
-      <button class="character-button" routerLink="create"  *ngIf="auth.isAuthenticated$ | async">CREATE CHARACTER</button>
+      <button class="character-button" routerLink="create"  *ngIf="auth.isAuthenticated$ | async">CREATE CUSTOM CLASS</button>
     </div>
 
     <div class="container"  *ngIf="auth.isAuthenticated$ | async">
-      <h1 class="title">YOUR CHARACTERS</h1>
+      <h1 class="title">YOUR CLASSES</h1>
       <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8" class="ListadoPersonajes">
         <ng-container matColumnDef="Nombre">
           <th mat-header-cell *matHeaderCellDef class="LetrasTitle">NAME</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._NombrePersonaje }}</td>
+          <td mat-cell *matCellDef="let Class" class="Letras">{{ Class._Nombre }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="Raza">
-          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">RACE</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Raza }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="Clase">
-          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">CLASS</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Clase }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="Owner">
-          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">OWNER</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._IdOwner }}</td>
+        <ng-container matColumnDef="Descripcion">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">Descripcion</th>
+          <td mat-cell *matCellDef="let Class" class="Letras">{{ Class._Descripcion }}</td>
         </ng-container>
 
         <ng-container matColumnDef="Metodos">
           <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let Characters;" style="text-align: right">
-
-            <a (click)="deleteCharacter(Characters._id)" matTooltip="Eliminar Usuario" style="cursor: pointer">
+          <td mat-cell *matCellDef="let Class;" style="text-align: right">
+            <a class="pointer" (click)="deleteClasses(Class._id)" matTooltip="Eliminar Usuario" style="cursor: pointer">
               <mat-icon>delete</mat-icon>
             </a>
-          <span class="material-icons" routerLink="detail/{{Characters._id}}" style="cursor: pointer">search</span>
+          <span class="material-icons" routerLink="detail/{{Class._id}}" style="cursor: pointer">search</span>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -49,33 +38,22 @@
     <br>
 
     <div class="container">
-      <h1 class="title">ALL CHARACTERS</h1>
+      <h1 class="title">ALL CLASSES</h1>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="ListadoPersonajes">
         <ng-container matColumnDef="Nombre">
           <th mat-header-cell *matHeaderCellDef class="LetrasTitle">NAME</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._NombrePersonaje }}</td>
+          <td mat-cell *matCellDef="let Class" class="Letras">{{ Class._Nombre }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="Raza">
-          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">RACE</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Raza }}</td>
+        <ng-container matColumnDef="Descripcion">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">Descripcion</th>
+          <td mat-cell *matCellDef="let Class" class="Letras">{{ Class._Descripcion }}</td>
         </ng-container>
-
-        <ng-container matColumnDef="Clase">
-          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">CLASS</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Clase }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="Owner">
-          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">OWNER</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._IdOwner }}</td>
-        </ng-container>
-
 
         <ng-container matColumnDef="Metodos">
           <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let Characters;" style="text-align: right">
-          <span class="material-icons" routerLink="detail/{{Characters._id}}">search</span>
+          <td mat-cell *matCellDef="let Class;" style="text-align: right">
+          <span class="material-icons" routerLink="detail/{{Class._id}}">search</span>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -119,7 +97,7 @@
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-         </table>
+        </table>
          
          
 

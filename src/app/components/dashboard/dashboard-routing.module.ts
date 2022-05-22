@@ -13,9 +13,12 @@ import { LogoutButtonComponent } from './login/logout-button/logout-button.compo
 import { CheckComponent } from './characters/check/check.component'
 
 import { CreateComponent } from './characters/create/create.component';
+import { ClassesComponent } from './resources/classes/classes.component';
+import { RacesComponent } from './resources/races/races.component';
 
-import { ResourcesComponent } from './resources/resources.component'
-
+import { CreateClassComponent } from './resources/classes/create-class/create-class.component'
+import { CreateRacesComponent } from './resources/races/create-races/create-races.component'
+import { CheckRacesComponent } from './resources/races/check-races/check-races.component'
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
     { path: '', component: ForumComponent},
@@ -28,7 +31,13 @@ const routes: Routes = [
     { path: 'characters/create', component: CreateComponent},
     { path: 'guides', component: GuidesComponent},
     { path: 'profile', component: ProfileComponent},
-    { path: 'resources', component: ResourcesComponent }
+
+    { path: 'resources/classes', component: ClassesComponent},
+    { path: 'resources/classes/create', component: CreateClassComponent},
+    { path: 'resources/races', component: RacesComponent},
+    { path: 'resources/classes/create', component: CreateClassComponent},
+    { path: 'resources/races/create', component: CreateRacesComponent},
+    { path: 'resources/races/detail/:id', component: CheckRacesComponent }
   ]}
 ];
 

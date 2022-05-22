@@ -2,40 +2,42 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { Router  } from '@angular/router';
 import { Personaje } from 'src/app/models/character/character'
-import { CharactersService } from 'src/app/services/characterService/characters.service'
+import { Clase } from 'src/app/models/classes/class'
 import { MatTableDataSource } from '@angular/material/table';
+import { ClassesServiceService } from 'src/app/services/classesService/classes-service.service'
+import { RacesServiceService } from 'src/app/services/racesService/races-service.service';
 @Component({
-  selector: 'app-characters',
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.css']
+  selector: 'app-races',
+  templateUrl: './races.component.html',
+  styleUrls: ['./races.component.css']
 })
-export class CharactersComponent implements OnInit {
-  listCharaceters: Personaje[] = [];
-  listMyCharacters: Personaje[] = [];
-  displayedColumns = ['Nombre', 'Raza', 'Clase', 'Owner', 'Metodos'];
+export class RacesComponent implements OnInit {
+  listClasses: Clase[] = [];
+  listMyClasses: Clase[] = [];
+  displayedColumns = ['Nombre', 'Origen', 'Metodos'];
   dataSource!: MatTableDataSource<any>;
   dataSource2!: MatTableDataSource<any>;
   
 
-  constructor(public auth: AuthService, private _characterService: CharactersService, private _changeDetectorRefs: ChangeDetectorRef, private _router: Router) { }
+  constructor(public auth: AuthService, private _racesService: RacesServiceService, private _changeDetectorRefs: ChangeDetectorRef, private _router: Router) { }
 
   ngOnInit(): void {
     let userId : string;
     this.auth.user$
     .subscribe((profile) => {
 
-    this._characterService.getCharacters().subscribe(data => {
-      this.listCharaceters=data,
-      this.dataSource = new MatTableDataSource (this.listCharaceters);
+    this._racesService.getRaces().subscribe(data => {
+      this.listClasses=data,
+      this.dataSource = new MatTableDataSource (this.listClasses);
     })
 
     if(profile?.sub!==undefined) {
       userId=profile.sub
     }
     console.log(userId)
-    this._characterService.getMyCharacters(userId).subscribe(data2 => {
-      this.listMyCharacters=data2,
-      this.dataSource2 = new MatTableDataSource (this.listMyCharacters);
+    this._racesService.getmyRace(userId).subscribe(data2 => {
+      this.listMyClasses=data2,
+      this.dataSource2 = new MatTableDataSource (this.listMyClasses);
     })
   });
 
@@ -53,9 +55,9 @@ export class CharactersComponent implements OnInit {
     this.dataSource2.filter = filterValue.trim().toLowerCase();
   }
 
-  deleteCharacter(id: number) {
+  deleteRaces(id: number) {
     if (confirm('Are you sure you want to delete this character?')) {
-      this._characterService.deleteCharacter(id). subscribe(data => {
+      this._racesService.deleteRaces(id). subscribe(data => {
         console.log(data);
         this.ngOnInit();
       },

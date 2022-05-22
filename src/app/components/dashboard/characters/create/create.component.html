@@ -89,42 +89,17 @@
               </div>
 
 
-              <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="Raza"
-                  class="form-control form-control-lg"
-                  placeholder="Raza del Character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('Raza')?.hasError('required') &&
-                  characterForm.get('Raza')?.touched
-                  "
-                >
-                  <span>Inserte la Raza</span>
-                </div>
-              </div>
+             <select formControlName="Raza" (change)="changeRace($event)" class="form-control">
+                <option [value]="race._id" *ngFor="let race of listRaces" >
+                  {{race._NombreRaza}}
+                </option>
+              </select>
 
-
-              <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="Clase"
-                  class="form-control form-control-lg"
-                  placeholder="Clase del character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('Clase')?.hasError('required') &&
-                  characterForm.get('Clase')?.touched
-                  "
-                >
-                  <span>Inserte la Clase</span>
-                </div>
-              </div>
+              <select formControlName="Clase" (change)="changeClass($event)" class="form-control">
+                <option [value]="class._id" *ngFor="let class of listClasses" >
+                  {{class._Nombre}}
+                </option>
+              </select>
 
 
               <div class="mb-2">

@@ -1,0 +1,62 @@
+<div class="contorno">
+    <div class="Spacer"></div>
+    <div class="Spacer"></div>
+    <div class="Spacer"></div>
+
+
+    <div class="inputs">
+      <input matInput (keyup)="applyFilter($event)" class="character-filter" placeholder="Filter" style="text-align: left;" #input />
+      <button class="character-button" routerLink="create"  *ngIf="auth.isAuthenticated$ | async">CREATE CUSTOM RACE</button>
+    </div>
+
+    <div class="container"  *ngIf="auth.isAuthenticated$ | async">
+      <h1 class="title">YOUR RACES</h1>
+      <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8" class="ListadoPersonajes">
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">NAME</th>
+          <td mat-cell *matCellDef="let Races" class="Letras">{{ Races._NombreRaza }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Origen">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">ORIGIN</th>
+          <td mat-cell *matCellDef="let Races" class="Letras">{{ Races._Origen }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Metodos">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let Races;" style="text-align: right">
+            <a class="pointer" (click)="deleteRaces(Races._id)" matTooltip="Eliminar Usuario" style="cursor: pointer">
+              <mat-icon>delete</mat-icon>
+            </a>
+          <span class="material-icons" routerLink="detail/{{Races._id}}" style="cursor: pointer">search</span>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+       </table>
+    </div>
+    <br>
+
+    <div class="container">
+      <h1 class="title">ALL RACES</h1>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="ListadoPersonajes">
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">NAME</th>
+          <td mat-cell *matCellDef="let Races" class="Letras">{{ Races._NombreRaza }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Origen">
+          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">ORIGIN</th>
+          <td mat-cell *matCellDef="let Races" class="Letras">{{ Races._Origen }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Metodos">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let Races;" style="text-align: right">
+          <span class="material-icons" routerLink="detail/{{Races._id}}">search</span>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+       </table>
+    </div>

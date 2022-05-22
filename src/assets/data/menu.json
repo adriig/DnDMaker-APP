@@ -11,17 +11,12 @@
     },
     {
         "nombre": "Games",
-        "redirect": "/dashboard/games",
-        "type": "Simple"
+
+=======
+        "redirect": "/dashboard/games"
     },
     {
-        "nombre": "Resources",
-        "redirect": "/dashboard/resources",
-        "type": "Complex",
-        "subdir": [
-            {"nombre": "classes", "redirect": "/dashboard/resources/classes"},
-            {"nombre": "races", "redirect": "/dashboard/resources/races"},
-            {"nombre": "weapons", "redirect": "/dashboard/resources/weapons"}
-        ]
+        "nombre": "Guides",
+        "redirect": "/dashboard/guides"
     }
 ]

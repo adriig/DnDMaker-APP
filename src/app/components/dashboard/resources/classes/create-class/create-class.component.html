@@ -1,0 +1,125 @@
+<div class="contorno">
+    <div class="Spacer"></div>
+    <div class="Spacer"></div>
+    <div class="Spacer"></div>
+
+
+    <div class="ListBubbles">
+    <div class="TitleGen">
+      
+      <div class="TitleBubbles"> <p class="TituloGen"><b>CREATE YOUR CHARACTER</b></p></div>
+      
+    <div class="container mt-5">
+        <div class="row">
+          <div class="container col-4" style="text-align:center">
+            <form class="mt-3" [formGroup]="classesForm" (ngSubmit)="crearCharacter()">
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Nombre"
+                  class="form-control form-control-lg"
+                  placeholder="Nombre de Clase"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  classesForm.get('Nombre')?.hasError('required') &&
+                  classesForm.get('Nombre')?.touched
+                  "
+                >
+                  <span>Inserte nombre de Clase</span>
+                </div>
+              </div>
+
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Habilidades"
+                  class="form-control form-control-lg"
+                  placeholder="Habilidades del character"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  classesForm.get('Habilidades')?.hasError('required') &&
+                  classesForm.get('Habilidades')?.touched
+                  "
+                >
+                  <span>Inserte las habilidades</span>
+                </div>
+              </div>
+
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Descripcion"
+                  class="form-control form-control-lg"
+                  placeholder="Descripcion del character"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  classesForm.get('Descripcion')?.hasError('required') &&
+                  classesForm.get('Descripcion')?.touched
+                  "
+                >
+                  <span>Inserte Descripcion</span>
+                </div>
+              </div>
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="PG"
+                  class="form-control form-control-lg"
+                  placeholder="PG del personaje"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  classesForm.get('PG')?.hasError('required') &&
+                  classesForm.get('PG')?.touched
+                  "
+                >
+                  <span>Inserte la PG</span>
+                </div>
+              </div>
+
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Salvacion"
+                  class="form-control form-control-lg"
+                  placeholder="Salvacion del Character"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  classesForm.get('Salvacion')?.hasError('required') &&
+                  classesForm.get('Salvacion')?.touched
+                  "
+                >
+                  <span>Inserte la Salvacion</span>
+                </div>
+              </div>
+
+              <div style="text-align:center">
+                <button
+                  type="submit"
+                  [disabled]="classesForm.invalid"
+                  class="btn btn-success btn-primary btn-lg"
+                  (click)="crearCharacter()"
+                >Enviar
+                  <i class="fas fa-upload"></i>
+                </button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>

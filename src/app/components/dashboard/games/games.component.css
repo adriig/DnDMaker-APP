@@ -1,14 +1,94 @@
-.background {
-    background-image: url("../../../../assets/files/Pagina-en-construccion.jpg");
-    height: 100%;
-    background-repeat: no-repeat;
-
-}
-
 .page {
-    margin-left: 25%;
-    margin-top: 5%;
+    padding: 0 10% 0 10%;
+
     height: 100%;
     text-align: center;
-    vertical-align:middle;
+    vertical-align: middle;
+
+    background-image: url("../../../../assets/files/characters.jpg");
+}
+
+.main-title {
+    padding: 2%;
+
+    border-radius: 25px;
+    text-align: center;
+
+    font-size: 50px;
+    font-weight: bold;
+
+    color: white;
+    background-color: rgb(185, 66, 66);
+}
+
+.spacer {
+    height: 5%;
+}
+
+.flex-column {
+    display: flex;
+}
+
+.card {
+    padding: 5%;
+    background-color: rgb(62, 62, 62);
+}
+
+.games {
+    padding: 2%;
+
+    padding: -2%;
+    width: 60%;
+}
+
+.player-games {
+    margin-left: 2.5%;
+    width: 35%;
+}
+
+.title {
+    padding: .5%;
+
+    border-radius: 5px;
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    color: white;
+    /* background-color: rgb(185, 132, 66); */
+    background-color: rgb(185, 66, 66);
+}
+
+.games-table {
+    width: 100%;
+    background-color: rgb(116, 116, 116);
+}
+
+.games-table th {
+    background-color: rgb(83, 83, 83);
+
+    height: 40px;
+    font-size: 130%;
+    font-weight: bold;
+
+    color: rgb(255, 255, 255);
+}
+
+.games-table td {
+    height: 50px;
+}
+
+.game-button-request {
+    width: 80%;
+    height: 80%;
+
+    font-size: 120%;
+    font-weight: bold;
+
+    color: white;
+    border-radius: 10px;
+
+    background-color: rgb(96, 143, 83);
+    border: none;
 }
