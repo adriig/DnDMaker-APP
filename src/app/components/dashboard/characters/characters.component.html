@@ -35,14 +35,10 @@
         <ng-container matColumnDef="Metodos">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let Characters;" style="text-align: right">
-<<<<<<< Updated upstream
-          <span class="material-icons" routerLink="detail/{{Characters._id}}">search</span>
-=======
             <a (click)="deleteCharacter(Characters._id)" matTooltip="Eliminar Usuario" style="cursor: pointer">
               <mat-icon>delete</mat-icon>
             </a>
           <span class="material-icons" routerLink="detail/{{Characters._id}}" style="cursor: pointer">search</span>
->>>>>>> Stashed changes
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

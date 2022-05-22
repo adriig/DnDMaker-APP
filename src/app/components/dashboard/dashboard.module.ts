@@ -16,14 +16,11 @@ import { LoginButtonComponent } from './login/login-button/login-button.componen
 import { LogoutButtonComponent } from './login/logout-button/logout-button.component';
 import { CheckComponent } from './characters/check/check.component';
 import { CreateComponent } from './characters/create/create.component';
-<<<<<<< Updated upstream
-=======
 import { ClassesComponent } from './resources/classes/classes.component';
 import { RacesComponent } from './resources/races/races.component';
 import { CreateClassComponent } from './resources/classes/create-class/create-class.component';
 import { CreateRacesComponent } from './resources/races/create-races/create-races.component';
 import { CheckRacesComponent } from './resources/races/check-races/check-races.component';
->>>>>>> Stashed changes
 
 
 @NgModule({
@@ -40,14 +37,11 @@ import { CheckRacesComponent } from './resources/races/check-races/check-races.c
     LogoutButtonComponent,
     CheckComponent,
     CreateComponent,
-<<<<<<< Updated upstream
-=======
     ClassesComponent,
     RacesComponent,
     CreateClassComponent,
     CreateRacesComponent,
     CheckRacesComponent,
->>>>>>> Stashed changes
   ],
   imports: [
     CommonModule,

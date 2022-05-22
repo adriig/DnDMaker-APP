@@ -9,10 +9,6 @@
     <div class="tools">
     <mat-toolbar color="white" style="border-bottom-left-radius: 12%;border-bottom-right-radius: 12%;opacity: 0.75;">
         <span class="example-spacer"></span>
-<<<<<<< Updated upstream
-      <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect" style="border-radius:5px;">{{item.nombre}}</button>
-      <span class="example-spacer"></span>
-=======
       <div *ngFor="let item of menu">
         <button mat-button [routerLink]="item.redirect" style="border-radius:5px;">{{item.nombre}}</button>
       </div>
@@ -25,7 +21,6 @@
           </div>
         </div>
       </div>
->>>>>>> Stashed changes
       <app-authentication-button></app-authentication-button>
       <!-- <div>
         <button mat-button style="border-radius:5px;" [routerLink]="'/dashboard/resources'">Resources</button>

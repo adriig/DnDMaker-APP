@@ -25,12 +25,8 @@
 }
 
 .tools {
-<<<<<<< Updated upstream
-  align-items: right;
-=======
   width: 50%;
   align-items: center;
->>>>>>> Stashed changes
   display: flex;
 }
 
