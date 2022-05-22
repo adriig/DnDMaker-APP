@@ -31,6 +31,7 @@ const routes: Routes = [
     { path: 'characters/create', component: CreateComponent},
     { path: 'guides', component: GuidesComponent},
     { path: 'profile', component: ProfileComponent},
+
     { path: 'resources/classes', component: ClassesComponent},
     { path: 'resources/classes/create', component: CreateClassComponent},
     { path: 'resources/races', component: RacesComponent},

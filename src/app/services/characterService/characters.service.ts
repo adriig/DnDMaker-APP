@@ -16,12 +16,16 @@ export class CharactersService {
     return this.http.get(`${this.url}/characters/search/${id}`);
   }
 
-  getMyCharacters(idOwner: number): Observable<any> {
+  getMyCharacters(idOwner: string): Observable<any> {
+    console.log(this.http.get(`${this.url}/characters/getmy/${idOwner}`))
     return this.http.get(`${this.url}/characters/getmy/${idOwner}`);
   }
 
   addCharacter (Character: Personaje) {
-    console.log(Character)
     return this.http.post(`${this.url}/characters/add/`, Character);
+  }
+
+  deleteCharacter(id: number): Observable<any> {
+    return this.http.delete(`${this.url}/characters/delete/${id}`)
   }
 }

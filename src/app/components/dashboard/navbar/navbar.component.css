@@ -2,6 +2,13 @@
     flex: 1 1 auto;
   }
 
+.titulo {
+  display: flex;
+  margin-left: 5%;
+  margin-right: 8%;
+  width: 100%;
+}
+
 .labelTitle {
   line-height:400%;
   margin-left: 10%;
@@ -21,7 +28,7 @@
 }
 
 .empty {
-  width: 35%;
+  width: 25%;
 }
 
 .tools {
