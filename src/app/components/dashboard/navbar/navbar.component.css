@@ -5,8 +5,8 @@
 .labelTitle {
   line-height:400%;
   margin-left: 10%;
-  width: 9%;
-  background-color: rgb(253, 47, 47);
+  width: 11.5%; 
+  background-color: rgb(185, 66, 66);
   text-align: center;
   color: whitesmoke;
   border-bottom-left-radius: 15%;
@@ -25,7 +25,12 @@
 }
 
 .tools {
+<<<<<<< Updated upstream
   align-items: right;
+=======
+  width: 50%;
+  align-items: center;
+>>>>>>> Stashed changes
   display: flex;
 }
 
@@ -45,4 +50,63 @@ button:hover {
 
 .profiler {
   margin-left: 1%;
+}
+
+.navbar {
+  overflow: hidden;
+}
+
+/* Navigation links */
+.navbar a {
+  float: left;
+  text-align: center;
+}
+
+/* The subnavigation menu */
+.subnav {
+  float: left;
+  overflow: hidden;
+}
+
+/* Subnav button */
+.subnav .subnavbtn {
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  background-color: inherit;
+  margin: 0;
+}
+
+/* Add a red background color to navigation links on hover */
+.navbar a:hover, .subnav:hover .subnavbtn {
+  background-color: red;
+}
+
+/* Style the subnav content - positioned absolute */
+.subnav-content {
+  margin-left: 66%;
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: red;
+  width: 50%;
+  z-index: 1;
+}
+
+/* Style the subnav links */
+.subnav-content a {
+  float: left;
+  color: white;
+  text-decoration: none;
+}
+
+/* Add a grey background color on hover */
+.subnav-content a:hover {
+  background-color: #eee;
+  color: black;
+}
+
+/* When you move the mouse over the subnav container, open the subnav content */
+.subnav:hover .subnav-content {
+  display: block;
 }

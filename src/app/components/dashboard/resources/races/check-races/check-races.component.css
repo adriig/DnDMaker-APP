@@ -1,0 +1,74 @@
+.Spacer {
+  height: 5%;
+}
+
+.contorno {
+  height: 100%;
+  background-image: url("../../../../../../assets/files/characters.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-position: -100% 0;
+}
+
+.general {
+  margin-bottom: 10%; margin-right: 10%; margin-left: 10%;
+  display: flex;
+  height:80%;
+  background-color: red;
+}
+
+.firstRectangulo {
+  background-color: blue;
+  display:block;
+  width: 25%;
+}
+
+.profilePicture {
+  display:flex;
+  margin: 15%;
+  height: 30%;
+  background-color: red;
+}
+
+.imagen {
+  width: 100%;
+  margin-right: 15%;
+  background-color: aquamarine;
+}
+
+.textosPersonaje {
+  display: block;
+  margin: 15%;
+  height: 50%;
+  background-color: aliceblue;
+}
+
+.segundoRectangulo {
+  background-color: green;
+  display: block;
+  width: 50%;
+}
+
+.tercerRectangulo {
+  background-color: gray;
+  display: flex;
+  width: 30%;
+}
+
+.NombrePersonaje {
+  text-align: center;
+  font-size: large;
+  color: red;
+}
+
+.Aspectos {
+  font-size: larger;
+  color: red;
+}
+
+.TituloLore {
+  margin-top: 1%;
+  font-size:x-large;
+  color:red;
+  text-align: center;
+}

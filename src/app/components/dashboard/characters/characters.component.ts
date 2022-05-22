@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class CharactersComponent implements OnInit {
   listCharaceters: Personaje[] = [];
   listMyCharacters: Personaje[] = [];
-  displayedColumns = ['Nombre', 'Raza', 'Clase', 'Metodos'];
+  displayedColumns = ['Nombre', 'Raza', 'Clase', 'Owner', 'Metodos'];
   dataSource!: MatTableDataSource<any>;
   
 

@@ -10,9 +10,12 @@
     {
         "nombre": "Games",
         "redirect": "/dashboard/games"
+<<<<<<< Updated upstream
     },
     {
         "nombre": "Guides",
         "redirect": "/dashboard/guides"
+=======
+>>>>>>> Stashed changes
     }
 ]

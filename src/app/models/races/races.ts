@@ -8,13 +8,15 @@ export class Raza {
     public _Habilidades: Array<Habilidades>;
     public _Origen: string;
     public _Nombres: Array<String>;
+    public _IdOwner: string;
 
-    public constructor(id: number, NombreRaza: string, Multiplicadores: Array<Stats>, Habilidades: Array<Habilidades>, Origen: string, Nombres: Array<String>){
+    public constructor(id: number, NombreRaza: string, Multiplicadores: Array<Stats>, Habilidades: Array<Habilidades>, Origen: string, Nombres: Array<String>, IdOwner: string){
         this._id=id
         this._NombreRaza=NombreRaza;
         this._Multiplicadores = Multiplicadores;
         this._Habilidades = Habilidades;
         this._Origen = Origen;
-        this._Nombres = Nombres
+        this._Nombres = Nombres;
+        this._IdOwner = IdOwner;
     }
 }

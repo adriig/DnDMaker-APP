@@ -9,10 +9,27 @@
     <div class="tools">
     <mat-toolbar color="white" style="border-bottom-left-radius: 12%;border-bottom-right-radius: 12%;opacity: 0.75;">
         <span class="example-spacer"></span>
+<<<<<<< Updated upstream
       <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect" style="border-radius:5px;">{{item.nombre}}</button>
       <span class="example-spacer"></span>
+=======
+      <div *ngFor="let item of menu">
+        <button mat-button [routerLink]="item.redirect" style="border-radius:5px;">{{item.nombre}}</button>
+      </div>
+      <div class="navbar">
+        <div class="subnav">
+          <button mat-button class="subnavbtn" style="border-radius:5px;">Resources <i class="fa fa-caret-down"></i></button>
+          <div class="subnav-content">
+            <a [routerLink]="'resources/classes'">Classes</a>
+            <a [routerLink]="'resources/races'">Races</a>
+          </div>
+        </div>
+      </div>
+>>>>>>> Stashed changes
       <app-authentication-button></app-authentication-button>
-
+      <!-- <div>
+        <button mat-button style="border-radius:5px;" [routerLink]="'/dashboard/resources'">Resources</button>
+      </div> -->
       
       <div *ngIf="auth.isAuthenticated$ | async" class="profiler">
           <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon" [routerLink]="'/dashboard/profile'">
@@ -23,3 +40,12 @@
       </mat-toolbar>
     </div>
 </div>
+
+
+
+<!-- 
+
+{
+  "nombre": "Resources",
+  "redirect": "/dashboard/resources"
+} -->

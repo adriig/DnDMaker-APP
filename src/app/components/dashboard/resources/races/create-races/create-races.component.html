@@ -1,0 +1,126 @@
+<p>create-races works!</p>
+<div class="contorno">
+    <div class="Spacer"></div>
+    <div class="Spacer"></div>
+    <div class="Spacer"></div>
+
+
+    <div class="ListBubbles">
+    <div class="TitleGen">
+      
+      <div class="TitleBubbles"> <p class="TituloGen"><b>CREATE YOUR RACE</b></p></div>
+      
+    <div class="container mt-5">
+        <div class="row">
+          <div class="container col-4" style="text-align:center">
+            <form class="mt-3" [formGroup]="racesForm" (ngSubmit)="createRace()">
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Nombre"
+                  class="form-control form-control-lg"
+                  placeholder="Nombre de Raza"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  racesForm.get('Nombre')?.hasError('required') &&
+                  racesForm.get('Nombre')?.touched
+                  "
+                >
+                  <span>Inserte nombre de Raza</span>
+                </div>
+              </div>
+
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Multiplicadores"
+                  class="form-control form-control-lg"
+                  placeholder="Multiplicadores de la Raza"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  racesForm.get('Multiplicadores')?.hasError('required') &&
+                  racesForm.get('Multiplicadores')?.touched
+                  "
+                >
+                  <span>Inserte los Multiplicadores</span>
+                </div>
+              </div>
+
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Habilidades"
+                  class="form-control form-control-lg"
+                  placeholder="Habilidades de la raza"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  racesForm.get('Habilidades')?.hasError('required') &&
+                  racesForm.get('Habilidades')?.touched
+                  "
+                >
+                  <span>Inserte las Habilidades</span>
+                </div>
+              </div>
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Origen"
+                  class="form-control form-control-lg"
+                  placeholder="Origen de la raza"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  racesForm.get('Origen')?.hasError('required') &&
+                  racesForm.get('Origen')?.touched
+                  "
+                >
+                  <span>Inserte la Origen</span>
+                </div>
+              </div>
+
+
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Nombres"
+                  class="form-control form-control-lg"
+                  placeholder="Nombres de la raza"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  racesForm.get('Nombres')?.hasError('required') &&
+                  racesForm.get('Nombres')?.touched
+                  "
+                >
+                  <span>Inserte los Nombres</span>
+                </div>
+              </div>
+
+              <div style="text-align:center">
+                <button
+                  type="submit"
+                  [disabled]="racesForm.invalid"
+                  class="btn btn-success btn-primary btn-lg"
+                  (click)="createRace()"
+                >Enviar
+                  <i class="fas fa-upload"></i>
+                </button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
