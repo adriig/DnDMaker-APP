@@ -11,6 +11,7 @@ export class AuthenticationButtonComponent implements OnInit {
   constructor(public auth: AuthService) {}
 
   ngOnInit(): void {
+    
   }
 
 }

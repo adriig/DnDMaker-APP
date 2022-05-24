@@ -11,8 +11,6 @@
     },
     {
         "nombre": "Games",
-
-=======
         "redirect": "/dashboard/games"
     },
     {
