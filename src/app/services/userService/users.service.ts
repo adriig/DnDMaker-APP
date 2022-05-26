@@ -13,12 +13,13 @@ export class UsersService {
   }
 
   searchUser(id: string): Observable<any> {
+    
+    //this.http.get(`${this.url}/Users/search/${id}`).subscribe(data => console.log(data));
+    
     return this.http.get(`${this.url}/Users/search/${id}`);
   }
 
   addUsers (User: Users) {
-    console.log("asd")
-    console.log(this.http.post(`${this.url}/Users/add/`, User))
     return this.http.post(`${this.url}/Users/add/`, User);
   }
 

@@ -6,7 +6,7 @@ import { Users } from 'src/app/models/users/user'
 @Component({
   selector: 'app-logout-button',
   templateUrl: './logout-button.component.html',
-  styleUrls: ['./logout-button.component.scss']
+  styleUrls: ['./logout-button.component.css']
 })
 export class LogoutButtonComponent implements OnInit {
 
