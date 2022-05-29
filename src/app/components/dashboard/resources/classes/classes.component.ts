@@ -3,8 +3,10 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Router  } from '@angular/router';
 import { Personaje } from 'src/app/models/character/character'
 import { Clase } from 'src/app/models/classes/class'
+import { Users } from 'src/app/models/users/user'
 import { MatTableDataSource } from '@angular/material/table';
 import { ClassesServiceService } from 'src/app/services/classesService/classes-service.service'
+import { UsersService } from 'src/app/services/userService/users.service';
 @Component({
    selector: 'app-classes',
    templateUrl: './classes.component.html',
@@ -13,12 +15,13 @@ import { ClassesServiceService } from 'src/app/services/classesService/classes-s
 export class ClassesComponent implements OnInit {
   listClasses: Clase[] = [];
   listMyClasses: Clase[] = [];
-  displayedColumns = ['Nombre', 'Descripcion', 'Metodos'];
+  displayedColumns = ['Nombre', 'Descripcion', 'Owner', 'Metodos'];
   dataSource!: MatTableDataSource<any>;
   dataSource2!: MatTableDataSource<any>;
+  users: Map<string, Users> = new Map<string, Users>();
   
 
-  constructor(public auth: AuthService, private _classService: ClassesServiceService, private _changeDetectorRefs: ChangeDetectorRef, private _router: Router) { }
+  constructor(public auth: AuthService, private userService: UsersService, private _classService: ClassesServiceService, private _changeDetectorRefs: ChangeDetectorRef, private _router: Router) { }
 
   ngOnInit(): void {
     let userId : string;
@@ -39,6 +42,13 @@ export class ClassesComponent implements OnInit {
       this.dataSource2 = new MatTableDataSource (this.listMyClasses);
     })
   });
+
+  this.userService.getUsers().subscribe(data => {
+    for (const key in data) {
+      const user : Users = data[key];
+      this.users.set(user._id, user);
+    }
+  })
 
     
 
@@ -62,6 +72,18 @@ export class ClassesComponent implements OnInit {
       },
         error => console.log(error));
     }
+  }
+
+  resolveUsername(id: string) {
+    return this.users.get(id)?._Nombre;
+  }
+
+  addClassToUser(id: string) {
+    this.auth.user$.subscribe((profile) => {
+      if(profile?.sub!==undefined) {
+      return this.userService.addClass(profile.sub, id)
+      }
+    })
   }
 
 }

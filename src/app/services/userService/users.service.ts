@@ -19,6 +19,10 @@ export class UsersService {
     return this.http.get(`${this.url}/Users/search/${id}`);
   }
 
+  addClass(id: string, idValue: string) {
+    return this.http.get(`${this.url}/Users/addClass/${id}/${idValue}`)
+  }
+
   addUsers (User: Users) {
     return this.http.post(`${this.url}/Users/add/`, User);
   }
