@@ -19,6 +19,7 @@ export class ClassesComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   dataSource2!: MatTableDataSource<any>;
   users: Map<string, Users> = new Map<string, Users>();
+  statusClass: Map<number, Boolean> = new Map<number, Boolean>();
   
 
   constructor(public auth: AuthService, private userService: UsersService, private _classService: ClassesServiceService, private _changeDetectorRefs: ChangeDetectorRef, private _router: Router) { }
@@ -27,16 +28,27 @@ export class ClassesComponent implements OnInit {
     let userId : string;
     this.auth.user$
     .subscribe((profile) => {
-
-    this._classService.getClasses().subscribe(data => {
-      this.listClasses=data,
-      this.dataSource = new MatTableDataSource (this.listClasses);
-    })
-
     if(profile?.sub!==undefined) {
       userId=profile.sub
     }
-    console.log(userId)
+    this._classService.getClasses().subscribe(data => {
+      this.listClasses=data,
+      this.dataSource = new MatTableDataSource (this.listClasses);
+      for (const key in this.listClasses) {
+        console.log(key)
+        this.userService.checkIfClassExists(userId, this.listClasses[key]._id).subscribe(data => {
+          console.log(data)
+          this.statusClass.set(this.listClasses[key]._id, Boolean(data));
+          })
+        }
+      })
+  
+      // data.forEach(clase => {
+      //   this.userService.checkIfClassExists(userId, clase._id).subscribe(data => {
+          
+      //   })
+      // });
+     
     this._classService.getMyClasses(userId).subscribe(data2 => {
       this.listMyClasses=data2,
       this.dataSource2 = new MatTableDataSource (this.listMyClasses);
@@ -78,12 +90,41 @@ export class ClassesComponent implements OnInit {
     return this.users.get(id)?._Nombre;
   }
 
-  addClassToUser(id: string) {
-    this.auth.user$.subscribe((profile) => {
-      if(profile?.sub!==undefined) {
-      return this.userService.addClass(profile.sub, id)
-      }
-    })
+  debugTest() {
+    console.log(this.statusClass)
   }
 
+  checkClass(valueId: number) {
+    return this.statusClass.get(valueId);
+  }
+
+  removeClassInUser(id: number) {
+    this.auth.user$
+    .subscribe((profile) => {
+
+
+    if(profile?.sub!==undefined) {
+      let asd= this.userService.deleteClass(profile.sub, id)
+      asd.subscribe(data => {
+        console.log(data)
+      })
+    }
+    this.ngOnInit();
+  });
+  }
+
+  addClassToUser(id: number) {
+    this.auth.user$
+    .subscribe((profile) => {
+
+
+    if(profile?.sub!==undefined) {
+      let asd= this.userService.addClass(profile.sub, id)
+      asd.subscribe(data => {
+        console.log(data)
+      })
+    }
+    this.ngOnInit();
+  });
+  }
 }

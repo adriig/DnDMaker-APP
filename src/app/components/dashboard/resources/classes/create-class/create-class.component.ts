@@ -24,6 +24,7 @@ export class CreateClassComponent implements OnInit {
       Descripcion: ['', Validators.required],
       PG: ['', Validators.required],
       Salvacion: ['', Validators.required],
+      Public: ['', Validators.required]
     })
     this.id = Math.floor(Math.random() * (999999999999 - 1) + 2);
   }
@@ -41,8 +42,8 @@ export class CreateClassComponent implements OnInit {
     } else {
       userId = this.classesForm.get('id')?.value
     }
-    if(this.classesForm.get('id')?.value !== undefined && this.classesForm.get('Nombre')?.value !== undefined && this.classesForm.get('Habilidades')?.value !== undefined && this.classesForm.get('Descripcion')?.value !== undefined, this.classesForm.get('PG')?.value !== undefined, this.classesForm.get('Salvacion')?.value!==undefined) {
-    const Character = new Clase (this.id, this.classesForm.get('Nombre')?.value, this.classesForm.get('Habilidades')?.value, this.classesForm.get('PG')?.value, this.classesForm.get('Salvacion')?.value, this.classesForm.get('Descripcion')?.value, userId)
+    if(this.classesForm.get('id')?.value !== undefined && this.classesForm.get('Nombre')?.value !== undefined && this.classesForm.get('Habilidades')?.value !== undefined && this.classesForm.get('Descripcion')?.value !== undefined, this.classesForm.get('PG')?.value !== undefined, this.classesForm.get('Salvacion')?.value!==undefined, this.classesForm.get('Public')?.value!==undefined) {
+    const Character = new Clase (this.id, this.classesForm.get('Nombre')?.value, this.classesForm.get('Habilidades')?.value, this.classesForm.get('PG')?.value, this.classesForm.get('Salvacion')?.value, this.classesForm.get('Descripcion')?.value, userId, true, "Private")
     console.log(Character)
     this.classService.addClass(Character).subscribe()
     this.classesForm.reset()

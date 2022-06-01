@@ -17,17 +17,19 @@ export class ClassesServiceService {
   }
 
   getMyClasses(idOwner: string): Observable<any> {
-    console.log(this.http.get(`${this.url}/Classes/getmy/${idOwner}`))
     return this.http.get(`${this.url}/Classes/getmy/${idOwner}`);
   }
 
   addClass (Class: Clase) {
-    console.log("clase: "+Class)
     return this.http.post(`${this.url}/Classes/add/`, Class);
   }
 
   deleteClass(id: number): Observable<any> {
     return this.http.delete(`${this.url}/Classes/delete/${id}`)
+  }
+
+  getPickeableClasses(idOwner: string, idList: string[]): Observable<any> {
+    return this.http.get(`${this.url}/Classes/getpickeable/${idOwner}/${idList}`);
   }
 }
 

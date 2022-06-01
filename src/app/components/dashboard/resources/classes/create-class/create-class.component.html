@@ -88,6 +88,24 @@
                 </div>
               </div>
 
+              <div class="mb-2">
+                <input
+                  type="text"
+                  formControlName="Public"
+                  class="form-control form-control-lg"
+                  placeholder="Public del personaje"
+                />
+                <div
+                  class="text-danger"
+                  *ngIf="
+                  classesForm.get('Public')?.hasError('required') &&
+                  classesForm.get('Public')?.touched
+                  "
+                >
+                  <span>Inserte public</span>
+                </div>
+              </div>
+
 
               <div class="mb-2">
                 <input

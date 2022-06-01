@@ -5,6 +5,7 @@ import { Personaje } from 'src/app/models/character/character';
 import { CharactersService } from 'src/app/services/characterService/characters.service';
 import { RacesServiceService  } from 'src/app/services/racesService/races-service.service';
 import { ClassesServiceService  } from 'src/app/services/classesService/classes-service.service';
+import { UsersService  } from 'src/app/services/userService/users.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { Raza } from 'src/app/models/races/races'
 import { Clase } from 'src/app/models/classes/class';
@@ -30,7 +31,7 @@ export class CreateComponent implements OnInit {
   changeRace(e: any) {
     this.SelectedRace=e.target.value
   }
-  constructor(private fb: FormBuilder, private aRouter: ActivatedRoute, private characterService: CharactersService, private RaceService: RacesServiceService, private ClassService: ClassesServiceService, public auth: AuthService) {
+  constructor(private fb: FormBuilder, private aRouter: ActivatedRoute, private characterService: CharactersService, private RaceService: RacesServiceService, private ClassService: ClassesServiceService, private userService: UsersService, public auth: AuthService) {
     this.characterForm = this.fb.group({
       nombre: ['', Validators.required],
       alineacion: ['', Validators.required],
@@ -46,14 +47,28 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ClassService.getClasses().subscribe(data => {
+    let userId : string;
+    let myClasses : any
+    this.auth.user$
+    .subscribe((profile) => {
+      if(profile?.sub!==undefined) {
+        userId=profile.sub
+      }
+    this.userService.getClassesOfUser(userId).subscribe(data => {
+      myClasses=data
+      console.log(myClasses)
+
+    this.ClassService.getPickeableClasses(userId, myClasses).subscribe(data => {
       this.listClasses=data;
+      console.log(this.listClasses)
+    })
     })
 
     this.RaceService.getRaces().subscribe(data => {
       this.listRaces=data;
     })
   }
+)};
 
 
 

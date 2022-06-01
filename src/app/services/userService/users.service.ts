@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { mapTo, Observable } from 'rxjs';
 import { Users } from '../../models/users/user'
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,17 @@ export class UsersService {
     return this.http.get(`${this.url}/Users/search/${id}`);
   }
 
-  addClass(id: string, idValue: string) {
-    return this.http.get(`${this.url}/Users/addClass/${id}/${idValue}`)
+  deleteClass(id: string, idValue: number) {
+    return this.http.get(`${this.url}/Users/deleteClassInUser/${id}/${idValue}`)
+  }
+
+  addClass(id: string, idValue: number) {
+    var map = new Map();
+    return this.http.put(`${this.url}/Users/addClass/${id}/${idValue}`, map)
+  }
+
+  checkIfClassExists(id: string, idValue: number) {
+    return this.http.get(`${this.url}/Users/existClassInUsers/${id}/${idValue}`)
   }
 
   addUsers (User: Users) {
@@ -29,5 +38,9 @@ export class UsersService {
 
   deleteUsers(id: string): Observable<any> {
     return this.http.delete(`${this.url}/Users/delete/${id}`)
+  }
+
+  getClassesOfUser(id: string): Observable<any> {
+    return this.http.get(`${this.url}/Users/getClasses/${id}`)
   }
 }
