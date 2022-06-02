@@ -1,0 +1,193 @@
+.page {
+    padding: 0 10% 0 10%;
+  
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+  
+    background-image: url("../../../../../assets/files/characters.jpg");
+  }
+  
+  .main-title {
+    padding: 2%;
+  
+    border-radius: 25px;
+    text-align: center;
+  
+    font-size: 50px;
+    font-weight: bold;
+  
+    color: white;
+    background-color: rgb(185, 66, 66);
+  }
+  
+  .spacer {
+    height: 5%;
+  }
+  
+  .flex-column {
+    display: flex;
+  }
+  
+  .card {
+    padding: 5%;
+    margin-bottom: 5%;
+  
+    background-color: rgb(62, 62, 62);
+  }
+  
+  .games {
+    width: 65%;
+  }
+  
+  .games .card {
+    padding: 2%;
+  }
+  
+  .player-games {
+    margin-left: 2.5%;
+    width: 35%;
+  }
+  
+  .title {
+    padding: .5%;
+  
+    border-radius: 5px;
+    text-align: center;
+  
+    font-size: 18px;
+    font-weight: bold;
+  
+    color: white;
+  
+    background-color: rgb(185, 66, 66);
+  }
+  
+  .game-name {
+    margin-bottom: 3%;
+    text-indent: 2%;
+  
+    width: 100%;
+    height: 50px;
+  
+    font-size: 130%;
+  
+    color: black;
+    border-radius: 10px;
+  
+    border: none;
+  }
+  
+  .create-button {
+    width: 100%;
+    height: 50px;
+  
+    font-size: 120%;
+    font-weight: bold;
+    text-transform: uppercase;
+  
+    color: white;
+    background-color: rgb(96, 143, 83);
+    border-radius: 10px;
+  
+    border: none;
+  }
+  
+  .create-button:active {
+    opacity: .7;
+  }
+  
+  .subtitle {
+    color: white;
+    text-align: left;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    /* Full-width */
+    height: 25px;
+    /* Specified height */
+    background: #d3d3d3;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.7;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+    /* Fully shown on mouse-over */
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: rgb(185, 66, 66);
+    cursor: pointer;
+    /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    background: #04AA6D;
+    /* Green background */
+    cursor: pointer;
+    /* Cursor on hover */
+  }
+  
+  
+  .current-players {
+    color: white;
+  
+    font-weight: bold;
+    float: right;
+  }
+  
+  .games-table {
+    width: 100%;
+    background-color: rgb(116, 116, 116);
+    border-collapse: collapse;
+  }
+  
+  .games-table th {
+    background-color: rgb(83, 83, 83);
+  
+    height: 40px;
+    font-size: 130%;
+    font-weight: bold;
+  
+    color: rgb(255, 255, 255);
+  }
+  
+  .games-table td {
+    height: 50px;
+  }
+  
+  .games-table td {
+    border-right: 1px solid rgb(83, 83, 83);
+  }
+  
+  .games-table tr {
+    border-bottom: 1px solid rgb(83, 83, 83);
+  }
+  
+  mat-icon {
+    color: rgb(218, 218, 218);
+    cursor: pointer;
+  }

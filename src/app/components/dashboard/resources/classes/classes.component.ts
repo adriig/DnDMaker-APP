@@ -20,7 +20,7 @@ export class ClassesComponent implements OnInit {
   dataSource2!: MatTableDataSource<any>;
   users: Map<string, Users> = new Map<string, Users>();
   statusClass: Map<number, Boolean> = new Map<number, Boolean>();
-  
+  profileId: string = "none"
 
   constructor(public auth: AuthService, private userService: UsersService, private _classService: ClassesServiceService, private _changeDetectorRefs: ChangeDetectorRef, private _router: Router) { }
 
@@ -30,14 +30,13 @@ export class ClassesComponent implements OnInit {
     .subscribe((profile) => {
     if(profile?.sub!==undefined) {
       userId=profile.sub
+      this.profileId=userId
     }
     this._classService.getClasses().subscribe(data => {
       this.listClasses=data,
       this.dataSource = new MatTableDataSource (this.listClasses);
       for (const key in this.listClasses) {
-        console.log(key)
         this.userService.checkIfClassExists(userId, this.listClasses[key]._id).subscribe(data => {
-          console.log(data)
           this.statusClass.set(this.listClasses[key]._id, Boolean(data));
           })
         }
@@ -92,6 +91,10 @@ export class ClassesComponent implements OnInit {
 
   debugTest() {
     console.log(this.statusClass)
+  }
+
+  checkOwner(id: string) {      
+       return this.profileId==id
   }
 
   checkClass(valueId: number) {

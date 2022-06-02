@@ -22,6 +22,8 @@ import { RacesComponent } from './resources/races/races.component';
 import { CreateClassComponent } from './resources/classes/create-class/create-class.component';
 import { CreateRacesComponent } from './resources/races/create-races/create-races.component';
 import { CheckRacesComponent } from './resources/races/check-races/check-races.component';
+import { GameComponent } from './games/game/game.component';
+import { ManagementComponent } from './games/management/management.component';
 
 
 
@@ -44,6 +46,8 @@ import { CheckRacesComponent } from './resources/races/check-races/check-races.c
     CreateClassComponent,
     CreateRacesComponent,
     CheckRacesComponent,
+    GameComponent,
+    ManagementComponent,
   ],
   imports: [
     CommonModule,

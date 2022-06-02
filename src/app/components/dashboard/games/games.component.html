@@ -1,99 +1,38 @@
 <div class="page">
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    
-    <h1 class="main-title">GAMES</h1>
-  
-    <div class="flex-column">
-      <div class="games card">
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+
+  <h1 class="main-title">GAMES</h1>
+
+  <div class="flex-column">
+    <div class="games">
+      <div class="card">
         <h1 class="title">GAMES</h1>
-        
+
         <table class="games-table">
           <tr>
             <th>GAME ID</th>
             <th>PLAYERS</th>
             <th>JOIN</th>
           </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
-            </td>
-          </tr>
-          <tr>
-            <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-            <td>0/15</td>
-            <td>
-              <button class="game-button-request">Request</button>
+
+          <tr *ngFor="let game of games">
+            <td>{{game._id}}</td>
+            <td>{{game.participants.length}}/15</td>
+            <td *ngIf="auth.isAuthenticated$ | async">
+              <button *ngIf="!hasPlayerRequestedJoinGame(game._id); else cancelButton" class="game-button-request"
+                (click)="createGameRequest(game._id)">Request</button>
+              <ng-template #cancelButton>
+                <button class="game-button-request cancel" (click)="cancelGameRequest(game._id)">Cancel</button>
+              </ng-template>
             </td>
           </tr>
         </table>
       </div>
-      <div class="player-games">
+    </div>
+    <div class="player-games">
+      <div *ngIf="auth.isAuthenticated$ | async">
         <div class="your-games card">
           <h1 class="title">YOUR GAMES</h1>
           <table class="games-table">
@@ -105,32 +44,15 @@
               <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
               <td>0/15</td>
             </tr>
-            <tr>
-              <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-              <td>0/15</td>
-            </tr>
-            <tr>
-              <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-              <td>0/15</td>
-            </tr>
-            <tr>
-              <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-              <td>0/15</td>
-            </tr>
-            <tr>
-              <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-              <td>0/15</td>
-            </tr>
-            <tr>
-              <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-              <td>0/15</td>
-            </tr>
           </table>
+          <button routerLink="manage" class="manage">
+            MANAGE YOUR GAMES
+          </button>
         </div>
-        <div class="spacer"></div>
-        <div class="invitations card">
-          <h1 class="title">INVITATIONS</h1>
-        </div>
+      </div>
+      <div class="invitations card">
+        <h1 class="title">INVITATIONS</h1>
       </div>
     </div>
   </div>
+</div>

@@ -32,13 +32,15 @@
 .card {
     padding: 5%;
     background-color: rgb(62, 62, 62);
+    margin-bottom: 5%;
 }
 
 .games {
-    padding: 2%;
+    width: 65%;
+}
 
-    padding: -2%;
-    width: 60%;
+.games .card {
+    padding: 2%;
 }
 
 .player-games {
@@ -63,6 +65,7 @@
 .games-table {
     width: 100%;
     background-color: rgb(116, 116, 116);
+    border-collapse: collapse;
 }
 
 .games-table th {
@@ -79,6 +82,14 @@
     height: 50px;
 }
 
+.games-table td {
+    border-right: 1px solid rgb(83, 83, 83);
+}
+
+.games-table tr {
+    border-bottom: 1px solid rgb(83, 83, 83);
+}
+
 .game-button-request {
     width: 80%;
     height: 80%;
@@ -91,4 +102,34 @@
 
     background-color: rgb(96, 143, 83);
     border: none;
+    cursor: pointer;
+}
+
+.cancel {
+    background-color: rgb(169, 128, 77);
+}
+
+.game-button-request:active {
+    opacity: .7;
+}
+
+.manage {
+    margin-top: 5%;
+
+    width: 100%;
+    height: 50px;
+
+    font-size: 140%;
+    font-weight: bold;
+
+    color: white;
+    border-radius: 10px;
+
+    background-color: rgb(87, 111, 138);
+    border: none;
+    cursor: pointer;
+}
+
+.manage:active {
+    opacity: .7;
 }

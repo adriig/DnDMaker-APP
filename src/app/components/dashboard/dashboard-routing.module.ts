@@ -19,6 +19,10 @@ import { RacesComponent } from './resources/races/races.component';
 import { CreateClassComponent } from './resources/classes/create-class/create-class.component'
 import { CreateRacesComponent } from './resources/races/create-races/create-races.component'
 import { CheckRacesComponent } from './resources/races/check-races/check-races.component'
+
+import { GameComponent } from './games/game/game.component';
+import { ManagementComponent } from './games/management/management.component';
+
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
     { path: '', component: ForumComponent},
@@ -26,6 +30,8 @@ const routes: Routes = [
     { path: '', component: LoginButtonComponent},
     { path: '', component: LogoutButtonComponent},
     { path: 'games', component: GamesComponent},
+    { path: 'games/manage', component: ManagementComponent},
+    { path: 'games/:id', component: GameComponent},
     { path: 'characters', component: CharactersComponent},
     { path: 'characters/detail/:id', component: CheckComponent},
     { path: 'characters/create', component: CreateComponent},
