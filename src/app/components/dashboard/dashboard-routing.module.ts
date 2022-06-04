@@ -25,10 +25,11 @@ import { ManagementComponent } from './games/management/management.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
-    { path: '', component: ForumComponent},
+    { path: '', redirectTo: "forum", pathMatch: 'full'},
     { path: '', component: AuthenticationButtonComponent},
     { path: '', component: LoginButtonComponent},
     { path: '', component: LogoutButtonComponent},
+    { path: 'forum', component: ForumComponent},
     { path: 'games', component: GamesComponent},
     { path: 'games/manage', component: ManagementComponent},
     { path: 'games/:id', component: GameComponent},

@@ -1,13 +1,95 @@
-<div class="contorno">
+<div class="page">
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+  
+    <h1 class="main-title">FORUM</h1>
+  
+    <div class="flex-column">
+      <div class="games">
+        <div class="card">
+          <h1 class="title">POSTS</h1>
+  
+          <table class="games-table">
+  
+            <tr *ngFor="let post of posts">
+              <td>
+                <div class="likeOption">
+                    <div class="likes" style="text-align: left; display: flex"> 
+                        <mat-icon style="margin-top: 24%; margin-left:15%; font-size: 210%;">thumb_up</mat-icon><h1 style="margin-top:18%; margin-left: 15%;">{{post._Likes}}</h1>
+                    </div>
+                    <div class="dislikes" style="text-align: left; margin-left:15%; display: flex;">
+                        <mat-icon style="margin-top: 10%; font-size: 210%;">thumb_down</mat-icon><h1 style="margin-top:0%; margin-left: 18%">{{post._Dislikes}}</h1>
+                    </div>
+                </div>
+                </td>
+                <td>
+                    <div class="Contorno">
+                  <div class="Caratula">
+                    <div class="InfoCreacion">
+                        Published by {{resolveUsername(post._IdOwner)}} on {{ stringAsDate(post._Date) | date:'dd/MM/yy HH:mm:ss' }}
+                    </div>
+                    <div class="InfoTipo">
+                        {{post._Tipo}}
+                    </div>
+                  </div>
+                  <div class="Tituliti">
+                        <h1 style="text-align: left; margin-top: 2%;">{{post._Titulo}}</h1>
+                  </div>
+                </div>
+                </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="player-games">
+        <div>
+          <div class="your-games card">
+            <h1 class="title">SETTINGS</h1>
+            <!-- <table class="games-table">
+              <tr>
+                <th>GAME ID</th>
+                <th>PLAYERS</th>
+              </tr>
+              <tr>
+                <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
+                <td>0/15</td>
+              </tr>
+            </table>
+            <button routerLink="manage" class="manage">
+              MANAGE YOUR GAMES
+            </button> -->
+          </div>
+          <div class="your-games card">
+            <h1 class="title">CREATE POST</h1>
+            <form [formGroup]="postForm" (ngSubmit)="createPost()">
+                <input class="game-titulo" type="text" name="titulo" id="titulo" formControlName="titulo"
+                  placeholder="Introduce el titulo del post..." maxlength="16">
 
-<div class="Spacer"></div>
-<div class="Spacer"></div>
+                  <input class="game-titulo" type="text" name="texto" id="texto" formControlName="texto"
+                  placeholder="Introduce el texto del post..." maxlength="64">
 
-<div class="ContornoBloques">
-    <div class="Bloque1" routerLink="characters/create">
-    </div>
-    <div class="Bloques">b</div>
-    <div class="Bloques">c</div>
-    <div class="Bloques">d</div>
-</div>
-</div> 
+                  <select id="cars" name="tipo" id="tipo" formControlName="tipo">
+                    <option value="Opnion">Opinion</option>
+                    <option value="Suggestion">Suggestion</option>
+                    <option value="Meeting">Meeting</option>
+                  </select>
+
+                  <!-- <select formControlName="Raza" (change)="changeRace($event)" class="form-control">
+                    <option [value]="race._id" *ngFor="let race of listRaces" >
+                      {{race._NombreRaza}}
+                    </option>
+                  </select> -->
+      
+                <hr style="border: 1px solid rgb(95, 95, 95); margin: 4% 0 4% 0;">
+      
+                <button type="submit" [disabled]="postForm.invalid" class="create-button">CREATE POST</button>
+              </form>
+          </div>
+        </div>
+        <!-- <div class="invitations card">
+          <h1 class="title">INVITATIONS</h1>
+        </div> -->
+      </div>
+    </div> -->
+  </div>

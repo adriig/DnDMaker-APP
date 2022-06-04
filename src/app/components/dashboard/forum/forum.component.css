@@ -1,39 +1,169 @@
-.contorno {
+.page {
+    padding: 0 10% 0 10%;
+
     height: 100%;
-    background-image: url("../../../../assets/files/background.jpg");
+    text-align: center;
+    vertical-align: middle;
+
+    background-image: url("../../../../assets/files/characters.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    object-position: -100% 0;
 }
 
-.Spacer {
+.main-title {
+    padding: 2%;
+
+    border-radius: 25px;
+    text-align: center;
+
+    font-size: 50px;
+    font-weight: bold;
+
+    color: white;
+    background-color: rgb(185, 66, 66);
+}
+
+.spacer {
     height: 5%;
 }
 
-.Spacer2 {
-    width: 8%;
+.flex-column {
+    display: flex;
 }
 
-.ContornoBloques {
-    display: flex;
-    height: 30%;
+.card {
+    padding: 5%;
+    background-color: rgb(62, 62, 62);
+    margin-bottom: 5%;
 }
 
-.Bloques {
-    display: flex;
-    background-color: aliceblue;
-    margin-right: 5%;
-    margin-left: 5%;
-    width: 15%;
+.games {
+    width: 65%;
 }
 
-.Bloque1 {
-    margin-right: 5%;
-    margin-left: 5%;
-    display: flex;
-    width: 15%;
-    background-color: yellow;
-    background-image: url("../../../../assets/files/Create-Character.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+.games .card {
+    padding: 2%;
 }
+
+.player-games {
+    margin-left: 2.5%;
+    width: 35%;
+}
+
+.SpaceBetweenRows {
+    width: 100%;
+    background-color: rgb(62, 62, 62);
+    height: 10%;
+}
+.title {
+    padding: .5%;
+
+    border-radius: 5px;
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    color: white;
+    /* background-color: rgb(185, 132, 66); */
+    background-color: rgb(185, 66, 66);
+}
+
+.likeOption {
+    color: rgb(218, 218, 218);
+    width: 100%;
+    height: 100%;
+    background-color: rgb(90, 90, 90);
+    font-size: 10px;
+    padding-right: 10%;
+}
+
+.likes {
+    height: 50%;
+}
+
+.dislikes {
+    height: 50%;
+}
+
+.Contorno {
+    margin-left: 1%;
+    height: 100%;
+}
+.Caratula {
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+
+.InfoCreacion {
+    text-align: left;
+    width: 90%;
+}
+
+.InfoTipo {
+    border-radius: 25px;
+    background-color: lightblue;
+    width: 10%;
+}
+
+.Tituliti {
+    height: 80%;
+    width: 100%;
+}
+
+.games-table {
+    width: 100%;
+    background-color: rgb(116, 116, 116);
+    border-collapse: collapse;
+}
+
+.games-table th {
+    background-color: rgb(83, 83, 83);
+
+    height: 40px;
+    font-size: 130%;
+    font-weight: bold;
+
+    color: rgb(255, 255, 255);
+}
+
+.games-table td {
+    height: 80px;
+}
+
+.games-table td {
+    border-right: 1px solid rgb(83, 83, 83);
+}
+
+.games-table tr {
+    border-bottom: 1px solid rgb(83, 83, 83);
+}
+
+.game-button-request {
+    width: 80%;
+    height: 80%;
+
+    font-size: 120%;
+    font-weight: bold;
+
+    color: white;
+    border-radius: 10px;
+
+    background-color: rgb(96, 143, 83);
+    border: none;
+    cursor: pointer;
+}
+
+.cancel {
+    background-color: rgb(169, 128, 77);
+}
+
+.game-button-request:active {
+    opacity: .7;
+}
+
+mat-icon {
+    color: rgb(218, 218, 218);
+    cursor: pointer;
+  }

@@ -13,6 +13,7 @@ export class GamesService {
   constructor(private http: HttpClient) { }
 
   getGames(): Observable<any> {
+    console.log("Hola")
     return this.http.get(`${this.url}/games/get/`);
   }
 

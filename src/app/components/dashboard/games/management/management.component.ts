@@ -37,6 +37,8 @@ export class ManagementComponent implements OnInit {
         this.games = data;
       })
 
+      console.log(this.games)
+
     this.auth.user$.subscribe((profile) => {
       if (profile?.sub == undefined) {
         return;
@@ -51,6 +53,7 @@ export class ManagementComponent implements OnInit {
   }
 
   createGame(): void {
+    let continue1=false
     const game = new Game(
       uuidv4(),
       this.gameForm.get('name')?.value,
@@ -62,14 +65,11 @@ export class ManagementComponent implements OnInit {
 
     this.maxPlayers.value = "8";
     this.gameService.createGame(game).subscribe(data => {
-      console.log("COMPLETED");
-      
     });
-    console.log("ASD");
     
 
-    this.reset()
-    this.ngOnInit()
+      this.reset()
+      this.ngOnInit()
   }
 
   deleteGame(gameId: string): void {

@@ -13,7 +13,7 @@ export class PostsService {
     return this.http.get(`${this.url}/Posts/get`);
   }
 
-  searchPost(id: number): Observable<any> {
+  searchPost(id: string): Observable<any> {
     return this.http.get(`${this.url}/Posts/search/${id}`);
   }
 
@@ -25,7 +25,7 @@ export class PostsService {
     return this.http.post(`${this.url}/Posts/add/`, Posts);
   }
 
-  deletePost(id: number): Observable<any> {
+  deletePost(id: string): Observable<any> {
     return this.http.delete(`${this.url}/Posts/delete/${id}`)
   }
 
@@ -33,11 +33,11 @@ export class PostsService {
     return this.http.get(`${this.url}/Posts/getpertype/${type}`)
   }
 
-  addComment(id: number, comentario: Comments): Observable<any> {
+  addComment(id: string, comentario: Comments): Observable<any> {
     return this.http.put(`${this.url}/Posts/addComment/${id}`, comentario)
   }
 
-  react(id: number, reaction: Boolean): Observable<any> {
+  react(id: string, reaction: Boolean): Observable<any> {
     return this.http.get(`${this.url}/Posts/reaction/${id}/${reaction}`)
   }
 }
