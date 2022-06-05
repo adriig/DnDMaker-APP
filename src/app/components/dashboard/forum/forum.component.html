@@ -64,11 +64,11 @@
       <div>
         <div class="your-games card">
           <h1 class="title">SETTINGS</h1>
-          <button (click)="ngOnInit()">General</button>
-          <button (click)="filterByType('Meeting')">Meeting</button>
-          <button (click)="filterByType('Opinion')">Opinion</button>
-          <button (click)="filterByType('Suggestion')">Suggestion</button>
-          <button (click)="filterByOwner()">Ownership</button>
+          <button mat-raised-button color="" (click)="ngOnInit()">General</button>
+          <button mat-raised-button color="" (click)="filterByType('Meeting')" style="margin-left: 1.3%">Meeting</button>
+          <button mat-raised-button color="" (click)="filterByType('Opinion')" style="margin-left: 1.3%">Opinion</button>
+          <button mat-raised-button color="" (click)="filterByType('Suggestion')" style="margin-left: 1.3%">Suggestion</button>
+          <button mat-raised-button color="" (click)="filterByOwner()" style="margin-left: 1.3%">Ownership</button>
         </div>
         <div class="your-games card">
           <h1 class="title">CREATE POST</h1>

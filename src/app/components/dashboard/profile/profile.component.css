@@ -4,7 +4,6 @@
   
   .contorno {
     height: 100%;
-    background-image: url("../../../../assets/files/characters.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
