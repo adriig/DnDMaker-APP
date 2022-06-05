@@ -1,12 +1,4 @@
 .page {
-  /* height: 100%;
-  background-image: url("../../../../assets/files/characters.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  object-position: -100% 0; */
-
   padding: 0 10% 0 10%;
 
     height: 100%;
@@ -16,70 +8,6 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-/* .ListadoPersonajes {
-  height: auto;
-  background: rgb(62, 62, 62);
-}
-
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
-
-
-.container {
-  margin-right: 8%;
-  margin-left: 8%;
-  padding: 1% 2% 1% 2%;
-  border-radius: 5px;
-
-  background-color: rgb(62, 62, 62);
-}
-
-.title {
-  padding: .5%;
-
-  border-radius: 5px;
-  text-align: center;
-
-  font-size: 18px;
-  font-weight: bold;
-
-  color: white;
-  background-color: rgb(185, 66, 66);
-} */
-
-/* table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th {
-  text-align: left;
-  font-size: large;
-  font-weight: bold;
-  color: rgb(185, 66, 66);
-  padding: 1% 0 1% 0;
-}
-
-td {
-  padding: 1% 0 1% 0;
-  color: white;
-}
-
-button {
-  transition: background-color .5s;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: rgb(41, 51, 33);
-} */
 
 .main-title {
   padding: 2%;
@@ -106,27 +34,7 @@ button:hover {
 
   border-radius: 5px;
   border: none;
-}/* 
-
-.character-filter {
-  color: black;
-
-  width: 20%;
-  padding: 1%;
-  margin: 1%;
-
-  border-radius: 5px;
-  border: none;
 }
-
-.inputs {
-  text-align: right;
-  margin-right: 7%;
-  margin-left: 7%;
-} */
-
-
-
 
 .spacer {
   height: 5%;
