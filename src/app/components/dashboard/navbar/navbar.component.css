@@ -24,7 +24,6 @@
   display: flex;
   flex-flow: row wrap;
   height: 0px;
-  
 }
 
 .empty {
@@ -92,7 +91,7 @@ button:hover {
   position: absolute;
   left: 0;
   background-color: red;
-  width: 50%;
+  width: 7%;
   z-index: 1;
 }
 

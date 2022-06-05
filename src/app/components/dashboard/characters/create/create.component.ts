@@ -25,11 +25,15 @@ export class CreateComponent implements OnInit {
   id: number;
   SelectedClass: any;
   SelectedRace: any;
+  selectedFile: any;
   changeClass(e: any) {
     this.SelectedClass=e.target.value
   }
   changeRace(e: any) {
     this.SelectedRace=e.target.value
+  }
+  onFileChanged(event: any) {
+    this.selectedFile = event.target.files[0]
   }
   constructor(private fb: FormBuilder, private aRouter: ActivatedRoute, private characterService: CharactersService, private RaceService: RacesServiceService, private ClassService: ClassesServiceService, private userService: UsersService, public auth: AuthService) {
     this.characterForm = this.fb.group({
@@ -86,6 +90,8 @@ export class CreateComponent implements OnInit {
     if(this.characterForm.get('nombre')?.value !== undefined && this.characterForm.get('alineacion')?.value !== undefined && this.characterForm.get('Lore')?.value !== undefined, this.characterForm.get('Personalidad')?.value!==undefined, this.characterForm.get('Raza')?.value!==undefined, this.characterForm.get('Clase')?.value!==undefined, this.characterForm.get('Hechizos')?.value!==undefined, this.characterForm.get('Estadisticas')?.value!==undefined, this.characterForm.get('Habilidades')?.value!==undefined) {
     const Character = new Personaje (this.id, this.characterForm.get('nombre')?.value, this.characterForm.get('alineacion')?.value, this.characterForm.get('Lore')?.value, userId, this.characterForm.get('Personalidad')?.value, this.characterForm.get('Raza')?.value, this.characterForm.get('Clase')?.value, this.characterForm.get('Hechizos')?.value, this.characterForm.get('Estadisticas')?.value, this.characterForm.get('Habilidades')?.value )
     this.characterService.addCharacter(Character).subscribe()
+
+    const fd = new FormData()
     this.characterForm.reset()
     console.log(profile?.sub)
     }

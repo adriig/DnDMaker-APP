@@ -12,15 +12,21 @@
   
           <table class="games-table">
   
-            <tr *ngFor="let post of posts">
+            <tr *ngFor="let post of posts | paginate: { itemsPerPage: 4, currentPage: pages }">
               <td>
                 <div class="likeOption">
-                    <div class="likes" style="text-align: left; display: flex"> 
-                        <mat-icon style="margin-top: 24%; margin-left:15%; font-size: 210%;">thumb_up</mat-icon><h1 style="margin-top:18%; margin-left: 15%;">{{post._Likes}}</h1>
+                    <div class="likes" style="text-align: left; display: flex;" *ngIf="resolveReaction(post._id)==1"> 
+                      <mat-icon style="margin-top: 24%; margin-left:15%; font-size: 210%; color: yellow;" (click)="unLike(post._id)">thumb_up</mat-icon><h1 style="margin-top:18%; margin-left: 15%;">{{post._Likes.length}}</h1>
                     </div>
-                    <div class="dislikes" style="text-align: left; margin-left:15%; display: flex;">
-                        <mat-icon style="margin-top: 10%; font-size: 210%;">thumb_down</mat-icon><h1 style="margin-top:0%; margin-left: 18%">{{post._Dislikes}}</h1>
+                    <div class="likes" style="text-align: left; display: flex" *ngIf="resolveReaction(post._id)!=1"> 
+                      <mat-icon style="margin-top: 24%; margin-left:15%; font-size: 210%;" (click)="like(post._id)">thumb_up</mat-icon><h1 style="margin-top:18%; margin-left: 15%;">{{post._Likes.length}}</h1>
+                  </div>
+                    <div class="dislikes" style="text-align: left; margin-left:15%; display: flex;" *ngIf="resolveReaction(post._id)==-1">
+                        <mat-icon style="margin-top: 10%; font-size: 210%;  color: yellow; " (click)="unDislike(post._id)">thumb_down</mat-icon><h1 style="margin-top:0%; margin-left: 18%">{{post._Dislikes.length}}</h1>
                     </div>
+                    <div class="dislikes" style="text-align: left; margin-left:15%; display: flex;" *ngIf="resolveReaction(post._id)!=-1">
+                      <mat-icon style="margin-top: 10%; font-size: 210%; " (click)="dislike(post._id)">thumb_down</mat-icon><h1 style="margin-top:0%; margin-left: 18%">{{post._Dislikes.length}}</h1>
+                  </div>
                 </div>
                 </td>
                 <td>
@@ -40,25 +46,19 @@
                 </td>
             </tr>
           </table>
+          <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+
         </div>
       </div>
       <div class="player-games">
         <div>
           <div class="your-games card">
             <h1 class="title">SETTINGS</h1>
-            <!-- <table class="games-table">
-              <tr>
-                <th>GAME ID</th>
-                <th>PLAYERS</th>
-              </tr>
-              <tr>
-                <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-                <td>0/15</td>
-              </tr>
-            </table>
-            <button routerLink="manage" class="manage">
-              MANAGE YOUR GAMES
-            </button> -->
+            <button (click)="ngOnInit()">General</button>
+            <button (click)="filterByType('Meeting')">Meeting</button>
+            <button (click)="filterByType('Opinion')">Opinion</button>
+            <button (click)="filterByType('Suggestion')">Suggestion</button>
+            <button (click)="filterByOwner()">Ownership</button>
           </div>
           <div class="your-games card">
             <h1 class="title">CREATE POST</h1>
@@ -70,7 +70,7 @@
                   placeholder="Introduce el texto del post..." maxlength="64">
 
                   <select id="cars" name="tipo" id="tipo" formControlName="tipo">
-                    <option value="Opnion">Opinion</option>
+                    <option value="Opinion">Opinion</option>
                     <option value="Suggestion">Suggestion</option>
                     <option value="Meeting">Meeting</option>
                   </select>
@@ -91,5 +91,5 @@
           <h1 class="title">INVITATIONS</h1>
         </div> -->
       </div>
-    </div> -->
+    </div> 
   </div>

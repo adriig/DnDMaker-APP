@@ -37,7 +37,19 @@ export class PostsService {
     return this.http.put(`${this.url}/Posts/addComment/${id}`, comentario)
   }
 
-  react(id: string, reaction: Boolean): Observable<any> {
-    return this.http.get(`${this.url}/Posts/reaction/${id}/${reaction}`)
+  like(id: string, idOwner: string): Observable<any> {
+    return this.http.get(`${this.url}/Posts/like/${id}/${idOwner}`)
+  }
+
+  dislike(id: string, idOwner: string): Observable<any> {
+    return this.http.get(`${this.url}/Posts/dislike/${id}/${idOwner}`)
+  }
+
+  unlike(id: string, idOwner: string): Observable<any> {
+    return this.http.get(`${this.url}/Posts/unlike/${id}/${idOwner}`)
+  }
+
+  undislike(id: string, idOwner: string): Observable<any> {
+    return this.http.get(`${this.url}/Posts/undislike/${id}/${idOwner}`)
   }
 }

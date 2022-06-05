@@ -8,7 +8,7 @@
 
     <div class="empty"></div>
     <div class="tools">
-    <mat-toolbar color="white" style="border-bottom-left-radius: 12%;border-bottom-right-radius: 12%;opacity: 0.75;">
+    <mat-toolbar color="white" style="border-bottom-left-radius: 12%;border-bottom-right-radius: 12%;opacity: 0.75; text-align: center;">
         <span class="example-spacer"></span>
       <div *ngFor="let item of menu">
         <button mat-button [routerLink]="item.redirect" style="border-radius:5px;">{{item.nombre}}</button>
@@ -19,7 +19,7 @@
           <button mat-button class="subnavbtn" style="border-radius:5px;">Resources <i class="fa fa-caret-down"></i></button>
           <div class="subnav-content">
             <a [routerLink]="'resources/classes'">Classes</a>
-            <a [routerLink]="'resources/races'">Races</a>
+            <a [routerLink]="'resources/races'" style="margin-left: 5%">Races</a>
           </div>
         </div>
       </div>

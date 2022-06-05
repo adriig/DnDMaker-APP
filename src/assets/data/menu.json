@@ -12,9 +12,5 @@
     {
         "nombre": "Games",
         "redirect": "/dashboard/games"
-    },
-    {
-        "nombre": "Guides",
-        "redirect": "/dashboard/guides"
     }
 ]

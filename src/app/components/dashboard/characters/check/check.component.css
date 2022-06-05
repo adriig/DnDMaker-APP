@@ -18,7 +18,7 @@
 }
 
 .firstRectangulo {
-    background-color: blue;
+    background-color: rgb(116, 116, 116);    
     display:block;
     width: 25%;
 }
@@ -40,11 +40,11 @@
     display: block;
     margin: 15%;
     height: 50%;
-    background-color: aliceblue;
+    background-color: rgb(83, 83, 83);
 }
 
 .segundoRectangulo {
-    background-color: green;
+    background-color: rgb(83, 83, 83);
     display: block;
     width: 50%;
 }
@@ -58,17 +58,17 @@
 .NombrePersonaje {
     text-align: center;
     font-size: large;
-    color: red;
+    color: white;
 }
 
 .Aspectos {
     font-size: larger;
-    color: red;
+    color: white;
 }
 
 .TituloLore {
     margin-top: 1%;
     font-size:x-large;
-    color:red;
+    color:white;
     text-align: center;
 }

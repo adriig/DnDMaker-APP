@@ -7,93 +7,53 @@
     <div class="ListBubbles">
     <div class="TitleGen">
       
-      <div class="TitleBubbles"> <p class="TituloGen"><b>CREATE YOUR CHARACTER</b></p></div>
+      <div class="TitleBubbles"> <p class="title"><b>CREATE YOUR CHARACTER</b></p></div>
       
-    <div class="container mt-5">
-        <div class="row">
-          <div class="container col-4" style="text-align:center">
+          <div class="container col-4" style="text-align:center;">
             <form class="mt-3" [formGroup]="characterForm" (ngSubmit)="crearCharacter()">
+            <div class="main">
+            <div class="divLore">
 
+              <p class="title"><b>GENERAL INFO</b></p>
               <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="nombre"
-                  class="form-control form-control-lg"
-                  placeholder="Nombre de Character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('nombre')?.hasError('required') &&
-                  characterForm.get('nombre')?.touched
-                  "
-                >
+                <input class="characterFields" type="text" name="nombre" id="nombre" formControlName="nombre" placeholder="Nombre del personaje..." maxlength="32">
+                <div class="text-danger" *ngIf="characterForm.get('nombre')?.hasError('required') && characterForm.get('nombre')?.touched">
                   <span>Inserte nombre de Character</span>
                 </div>
               </div>
 
-
               <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="alineacion"
-                  class="form-control form-control-lg"
-                  placeholder="Alineacion del character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('alineacion')?.hasError('required') &&
-                  characterForm.get('alineacion')?.touched
-                  "
-                >
-                  <span>Inserte la alineacion</span>
-                </div>
-              </div>
-
-
-              <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="Lore"
-                  class="form-control form-control-lg"
-                  placeholder="Lore del character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('Lore')?.hasError('required') &&
-                  characterForm.get('Lore')?.touched
-                  "
-                >
-                  <span>Inserte Lore</span>
+                <input class="characterFields" type="text" name="alineacion" id="alineacion" formControlName="alineacion" placeholder="Alineacion del personaje..." maxlength="32">
+                <div class="text-danger" *ngIf="characterForm.get('alineacion')?.hasError('required') && characterForm.get('alineacion')?.touched ">
+                  <span>Inserte la alineacion del personaje</span>
                 </div>
               </div>
 
               <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="Personalidad"
-                  class="form-control form-control-lg"
-                  placeholder="Personalidad del personaje"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('Personalidad')?.hasError('required') &&
-                  characterForm.get('Personalidad')?.touched
-                  "
-                >
+                <input class="characterFields" type="text" name="Personalidad" id="Personalidad" formControlName="Personalidad" placeholder="Personalidad del personaje..." maxlength="32">
+                <div class="text-danger" *ngIf="characterForm.get('Personalidad')?.hasError('required') && characterForm.get('Personalidad')?.touched">
                   <span>Inserte la Personalidad</span>
                 </div>
               </div>
 
 
+            <div class="mb-2">
+              <input class="loreField" type="text" name="Lore" id="Lore" formControlName="Personalidad" placeholder="Historia del personaje..."maxlength="128">
+              <div class="text-danger" *ngIf="characterForm.get('Personalidad')?.hasError('required') && characterForm.get('Personalidad')?.touched">
+                <span>Inserte historia del personaje</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="divLore">
+
+            <p class="title"><b>CUSTOMIZATION INFO</b></p>
              <select formControlName="Raza" (change)="changeRace($event)" class="form-control">
                 <option [value]="race._id" *ngFor="let race of listRaces" >
                   {{race._NombreRaza}}
                 </option>
-              </select>
+              </select><br><br>
 
               <select formControlName="Clase" (change)="changeClass($event)" class="form-control">
                 <option [value]="class._id" *ngFor="let class of listClasses" >
@@ -101,61 +61,7 @@
                 </option>
               </select>
 
-
-              <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="Hechizos"
-                  class="form-control form-control-lg"
-                  placeholder="Hechizos del character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('Hechizos')?.hasError('required') &&
-                  characterForm.get('Hechizos')?.touched
-                  "
-                >
-                  <span>Inserte los Hechizos</span>
-                </div>
-              </div>
-
-              <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="Estadisticas"
-                  class="form-control form-control-lg"
-                  placeholder="Estadisticas de character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('Estadisticas')?.hasError('required') &&
-                  characterForm.get('Estadisticas')?.touched
-                  "
-                >
-                  <span>Inserte las Estadisticas</span>
-                </div>
-              </div>
-              <div class="mb-2">
-                <input
-                  type="text"
-                  formControlName="Habilidades"
-                  class="form-control form-control-lg"
-                  placeholder="Habilidades de character"
-                />
-                <div
-                  class="text-danger"
-                  *ngIf="
-                  characterForm.get('Habilidades')?.hasError('Habilidades') &&
-                  characterForm.get('Habilidades')?.touched
-                  "
-                >
-                  <span>Inserte los Habilidades</span>
-                </div>
-              </div>
-
-              <div style="text-align:center">
+              <div style="text-align:center; margin-top: 90%;">
                 <button
                   type="submit"
                   [disabled]="characterForm.invalid"
@@ -165,9 +71,40 @@
                   <i class="fas fa-upload"></i>
                 </button>
             </div>
+
+          </div>
+
+          <div class="divLore">
+
+            <p class="title"><b>EXTRA INFO</b></p>
+            <div class="mb-2">
+              <input class="characterFields" type="text" name="Hechizos" id="Hechizos" formControlName="Hechizos" placeholder="Hechizos del personaje..." maxlength="32">
+              <div class="text-danger" *ngIf="characterForm.get('Hechizos')?.hasError('required') && characterForm.get('Hechizos')?.touched">
+                <span>Inserte los Hechizos</span>
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <input class="characterFields" type="text" name="Estadisticas" id="Estadisticas" formControlName="Estadisticas" placeholder="Estadisticas del personaje..." maxlength="32">
+              <div class="text-danger" *ngIf="characterForm.get('Estadisticas')?.hasError('required') && characterForm.get('Estadisticas')?.touched">
+                <span>Inserte las Estadisticas</span>
+              </div>
+            </div>
+
+            
+            <div class="mb-2">
+              <input class="characterFields" type="text" name="Habilidades" id="Habilidades" formControlName="Habilidades" placeholder="Habilidades del personaje..." maxlength="32">
+              <div class="text-danger" *ngIf="characterForm.get('Habilidades')?.hasError('Habilidades') && characterForm.get('Habilidades')?.touched">
+                <span>Inserte los Habilidades</span>
+              </div>
+            </div>
+
+              <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput> <button (click)="fileInput.click()">Select File</button>
+
+
+          </div>
+          </div>
             </form>
           </div>
         </div>
       </div>
-      </div>
-    </div>

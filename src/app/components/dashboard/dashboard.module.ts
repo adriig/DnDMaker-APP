@@ -25,6 +25,7 @@ import { CheckRacesComponent } from './resources/races/check-races/check-races.c
 import { GameComponent } from './games/game/game.component';
 import { ManagementComponent } from './games/management/management.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ManagementComponent } from './games/management/management.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ]
 })
 export class DashboardModule { }
