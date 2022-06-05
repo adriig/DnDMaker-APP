@@ -5,7 +5,7 @@
 import { default as authFile } from '../../auth_config.json';
 
 export const environment = {
-  production: false,
+  production: true,
   auth: {
     domain: authFile.domain,
     clientId: authFile.clientId,
