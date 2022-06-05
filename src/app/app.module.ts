@@ -14,6 +14,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthModule } from '@auth0/auth0-angular';
 import { environment as env } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { default as authFile } from '../../auth_config.json';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatFormFieldModule,
     AuthModule.forRoot({
-      ...env.auth,
+      domain: authFile.domain,
+      clientId: authFile.clientId,
+      redirectUri: window.location.origin
     }),
   ],
   providers: [],
