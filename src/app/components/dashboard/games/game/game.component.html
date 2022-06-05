@@ -1,1 +1,99 @@
-<p>game works!</p>
+<div class="page" *ngIf="auth.isAuthenticated$ | async">
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+
+  <h1 class="main-title">MANAGE GAME</h1>
+
+  <div class="flex-column">
+    <div class="game-info">
+      <div class="card">
+        <h1 class="title">GAME INFORMATION</h1>
+        <div class="flex-column">
+          <div style="width: 50%">
+            <p class="subtitle">ID</p>
+            <p>{{gameId}}</p>
+            <p class="subtitle">OWNER</p>
+            <p>{{ resolveUsername(getOwner()) }}</p>
+            <p class="subtitle">CREATED AT</p>
+            <p>{{ getCreatedAt() }}</p>
+          </div>
+          <div style="width: 50%">
+            <p class="subtitle">NAME</p>
+            <p>{{ getName() }}</p>
+            <p class="subtitle">PARTICIPANTS</p>
+            <p>{{ getParticipants().length }}/{{ getMaxPlayers() }}</p>
+          </div>
+        </div>
+        <button (click)="deleteGame()" routerLink="../../manage" class="invite-button delete">
+          DELETE
+        </button>
+      </div>
+    </div>
+    <div class="participants">
+      <div class="card">
+        <h1 class="title">PARTICIPANTS</h1>
+        <table class="games-table"
+          *ngIf="getParticipants().length != 0; else noParticipants">
+          <tr>
+            <th colspan="2">PLAYER</th>
+          </tr>
+
+          <tr *ngFor="let participant of getParticipants()">
+            <td>{{ resolveUsername(participant) }}</td>
+            <td>
+              <mat-icon (click)="deleteParticipant(participant)">cancel</mat-icon>
+            </td>
+          </tr>
+        </table>
+        <ng-template #noParticipants>
+          <p class="subtitle">No participants found yet</p>
+        </ng-template>
+      </div>
+    </div>
+    <div class="invites">
+      <div class="card">
+        <h1 class="title">PENDING REQUESTS</h1>
+        <table class="games-table" *ngIf="getRequests().length > 0; else noRequests">
+          <tr>
+            <th colspan="2">PLAYER</th>
+          </tr>
+          <tr *ngFor="let invite of getRequests()">
+            <td>{{ resolveUsername(invite.requester) }}</td>
+            <td>
+              <mat-icon style="color: rgb(154, 186, 152);" (click)="acceptRequest(invite.requester)">check_circle
+              </mat-icon>
+              <mat-icon></mat-icon>
+              <mat-icon style="color: rgb(197, 91, 91);" (click)="cancelRequest(invite.requester)">cancel</mat-icon>
+            </td>
+          </tr>
+        </table>
+        <ng-template #noRequests>
+          <p class="subtitle">No requests found yet</p>
+        </ng-template>
+      </div>
+      <form [formGroup]="inviteForm" (ngSubmit)="createInvite()">
+        <input class="player-name" type="text" name="userId" id="userId" placeholder="Introduce el id..."
+          formControlName="userId" maxlength="64">
+        <button type="submit" [disabled]="inviteForm.invalid" class="invite-button">Invite</button>
+      </form>
+      <div class="card">
+        <h1 class="title">PENDING INVITES</h1>
+        <table class="games-table" *ngIf="getInvites().length > 0; else noInvites">
+          <tr>
+            <th colspan="2">PLAYER</th>
+          </tr>
+          <tr *ngFor="let invite of getInvites()">
+            <td>{{resolveUsername(invite.invited)}}</td>
+            <td>
+              <mat-icon (click)="canceInvite(invite._id)">cancel</mat-icon>
+            </td>
+          </tr>
+        </table>
+        <ng-template #noInvites>
+          <p class="subtitle">No invites found yet</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

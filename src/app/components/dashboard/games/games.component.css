@@ -4,8 +4,6 @@
     height: 100%;
     text-align: center;
     vertical-align: middle;
-
-    background-image: url("../../../../assets/files/characters.jpg");
 }
 
 .main-title {
@@ -113,9 +111,15 @@
     opacity: .7;
 }
 
-.manage {
-    margin-top: 5%;
+.game-button-request:disabled {
+    background-color: rgb(146, 146, 146);
+}
 
+.game-button-request.leave {
+    background-color: rgb(191, 105, 105);
+}
+
+.manage {
     width: 100%;
     height: 50px;
 
@@ -132,4 +136,17 @@
 
 .manage:active {
     opacity: .7;
+}
+
+.subtitle {
+    font-size: 120%;
+    color: rgb(148, 148, 148);
+}
+
+.your-games .games-table {
+    margin-bottom: 4%;
+}
+
+mat-icon {
+    cursor: pointer;
 }

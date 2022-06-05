@@ -1,95 +1,105 @@
 <div class="page">
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-  
-    <h1 class="main-title">FORUM</h1>
-  
-    <div class="flex-column">
-      <div class="games">
-        <div class="card">
-          <h1 class="title">POSTS</h1>
-  
-          <table class="games-table">
-  
-            <tr *ngFor="let post of posts | paginate: { itemsPerPage: 4, currentPage: pages }">
-              <td>
-                <div class="likeOption">
-                    <div class="likes" style="text-align: left; display: flex;" *ngIf="resolveReaction(post._id)==1"> 
-                      <mat-icon style="margin-top: 24%; margin-left:15%; font-size: 210%; color: yellow;" (click)="unLike(post._id)">thumb_up</mat-icon><h1 style="margin-top:18%; margin-left: 15%;">{{post._Likes.length}}</h1>
-                    </div>
-                    <div class="likes" style="text-align: left; display: flex" *ngIf="resolveReaction(post._id)!=1"> 
-                      <mat-icon style="margin-top: 24%; margin-left:15%; font-size: 210%;" (click)="like(post._id)">thumb_up</mat-icon><h1 style="margin-top:18%; margin-left: 15%;">{{post._Likes.length}}</h1>
-                  </div>
-                    <div class="dislikes" style="text-align: left; margin-left:15%; display: flex;" *ngIf="resolveReaction(post._id)==-1">
-                        <mat-icon style="margin-top: 10%; font-size: 210%;  color: yellow; " (click)="unDislike(post._id)">thumb_down</mat-icon><h1 style="margin-top:0%; margin-left: 18%">{{post._Dislikes.length}}</h1>
-                    </div>
-                    <div class="dislikes" style="text-align: left; margin-left:15%; display: flex;" *ngIf="resolveReaction(post._id)!=-1">
-                      <mat-icon style="margin-top: 10%; font-size: 210%; " (click)="dislike(post._id)">thumb_down</mat-icon><h1 style="margin-top:0%; margin-left: 18%">{{post._Dislikes.length}}</h1>
-                  </div>
-                </div>
-                </td>
-                <td>
-                    <div class="Contorno">
-                  <div class="Caratula">
-                    <div class="InfoCreacion">
-                        Published by {{resolveUsername(post._IdOwner)}} on {{ stringAsDate(post._Date) | date:'dd/MM/yy HH:mm:ss' }}
-                    </div>
-                    <div class="InfoTipo">
-                        {{post._Tipo}}
-                    </div>
-                  </div>
-                  <div class="Tituliti">
-                        <h1 style="text-align: left; margin-top: 2%;">{{post._Titulo}}</h1>
-                  </div>
-                </div>
-                </td>
-            </tr>
-          </table>
-          <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
 
-        </div>
+  <h1 class="main-title">FORUM</h1>
+
+  <div class="flex-column">
+    <div class="games">
+      <div class="card">
+        <h1 class="title">POSTS</h1>
+
+        <table class="games-table">
+
+          <tr *ngFor="let post of posts | paginate: { itemsPerPage: 4, currentPage: pages }">
+            <td>
+              <div class="likeOption">
+                <div class="likes" style="text-align: left; display: flex;" *ngIf="resolveReaction(post._id)==1">
+                  <mat-icon style="margin-top: 24%; margin-left:15%; font-size: 210%; color: white;"
+                    (click)="unLike(post._id)">thumb_up</mat-icon>
+                  <h1 style="margin-top:18%; margin-left: 15%;">{{post._Likes.length}}</h1>
+                </div>
+                <div class="likes" style="text-align: left; display: flex" *ngIf="resolveReaction(post._id)!=1">
+                  <mat-icon style="margin-top: 24%; margin-left:15%; font-size: 210%;" (click)="like(post._id)">thumb_up
+                  </mat-icon>
+                  <h1 style="margin-top:18%; margin-left: 15%;">{{post._Likes.length}}</h1>
+                </div>
+                <div class="dislikes" style="text-align: left; margin-left:15%; display: flex;"
+                  *ngIf="resolveReaction(post._id)==-1">
+                  <mat-icon style="margin-top: 10%; font-size: 210%;  color: white; " (click)="unDislike(post._id)">
+                    thumb_down</mat-icon>
+                  <h1 style="margin-top:0%; margin-left: 18%">{{post._Dislikes.length}}</h1>
+                </div>
+                <div class="dislikes" style="text-align: left; margin-left:15%; display: flex;"
+                  *ngIf="resolveReaction(post._id)!=-1">
+                  <mat-icon style="margin-top: 10%; font-size: 210%; " (click)="dislike(post._id)">thumb_down</mat-icon>
+                  <h1 style="margin-top:0%; margin-left: 18%">{{post._Dislikes.length}}</h1>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="Contorno">
+                <div class="Caratula">
+                  <div class="InfoCreacion">
+                    Published by {{resolveUsername(post._IdOwner)}} on {{ stringAsDate(post._Date) | date:'dd/MM/yy
+                    HH:mm:ss' }}
+                  </div>
+                  <div class="InfoTipo">
+                    <p>{{post._Tipo}}</p>
+                  </div>
+                </div>
+                <div class="Tituliti">
+                  <h1 style="text-align: left; margin-top: 1%;">{{post._Titulo}}</h1>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <pagination-controls class="pagination" (pageChange)="pages = $event"></pagination-controls>
+
       </div>
-      <div class="player-games">
-        <div>
-          <div class="your-games card">
-            <h1 class="title">SETTINGS</h1>
-            <button (click)="ngOnInit()">General</button>
-            <button (click)="filterByType('Meeting')">Meeting</button>
-            <button (click)="filterByType('Opinion')">Opinion</button>
-            <button (click)="filterByType('Suggestion')">Suggestion</button>
-            <button (click)="filterByOwner()">Ownership</button>
-          </div>
-          <div class="your-games card">
-            <h1 class="title">CREATE POST</h1>
-            <form [formGroup]="postForm" (ngSubmit)="createPost()">
-                <input class="game-titulo" type="text" name="titulo" id="titulo" formControlName="titulo"
-                  placeholder="Introduce el titulo del post..." maxlength="16">
+    </div>
+    <div class="player-games">
+      <div>
+        <div class="your-games card">
+          <h1 class="title">SETTINGS</h1>
+          <button (click)="ngOnInit()">General</button>
+          <button (click)="filterByType('Meeting')">Meeting</button>
+          <button (click)="filterByType('Opinion')">Opinion</button>
+          <button (click)="filterByType('Suggestion')">Suggestion</button>
+          <button (click)="filterByOwner()">Ownership</button>
+        </div>
+        <div class="your-games card">
+          <h1 class="title">CREATE POST</h1>
+          <form [formGroup]="postForm" (ngSubmit)="createPost()">
+            <input class="game-titulo" type="text" name="titulo" id="titulo" formControlName="titulo"
+              placeholder="Introduce el titulo del post..." maxlength="16">
 
-                  <input class="game-titulo" type="text" name="texto" id="texto" formControlName="texto"
-                  placeholder="Introduce el texto del post..." maxlength="64">
+            <input class="game-titulo" type="text" name="texto" id="texto" formControlName="texto"
+              placeholder="Introduce el texto del post..." maxlength="64">
 
-                  <select id="cars" name="tipo" id="tipo" formControlName="tipo">
-                    <option value="Opinion">Opinion</option>
-                    <option value="Suggestion">Suggestion</option>
-                    <option value="Meeting">Meeting</option>
-                  </select>
+            <select id="cars" name="tipo" id="tipo" formControlName="tipo">
+              <option value="Opinion">Opinion</option>
+              <option value="Suggestion">Suggestion</option>
+              <option value="Meeting">Meeting</option>
+            </select>
 
-                  <!-- <select formControlName="Raza" (change)="changeRace($event)" class="form-control">
+            <!-- <select formControlName="Raza" (change)="changeRace($event)" class="form-control">
                     <option [value]="race._id" *ngFor="let race of listRaces" >
                       {{race._NombreRaza}}
                     </option>
                   </select> -->
-      
-                <hr style="border: 1px solid rgb(95, 95, 95); margin: 4% 0 4% 0;">
-      
-                <button type="submit" [disabled]="postForm.invalid" class="create-button">CREATE POST</button>
-              </form>
-          </div>
+
+            <hr style="border: 1px solid rgb(95, 95, 95); margin: 4% 0 4% 0;">
+
+            <button type="submit" [disabled]="postForm.invalid" class="create-button">CREATE POST</button>
+          </form>
         </div>
-        <!-- <div class="invitations card">
+      </div>
+      <!-- <div class="invitations card">
           <h1 class="title">INVITATIONS</h1>
         </div> -->
-      </div>
-    </div> 
+    </div>
   </div>
+</div>

@@ -8,7 +8,7 @@ export class Clase {
     public _Descripcion: string;
     public _PG: Array<String>;
     public _Salvacion: Array<String>;
-    public _IdOwner: String;
+    public _IdOwner: string;
     public _Public: Boolean;
     public _Type: String;
 

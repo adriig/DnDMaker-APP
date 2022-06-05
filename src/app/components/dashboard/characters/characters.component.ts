@@ -14,10 +14,9 @@ import{ UsersService } from 'src/app/services/userService/users.service'
 export class CharactersComponent implements OnInit {
   listCharaceters: Personaje[] = [];
   listMyCharacters: Personaje[] = [];
-  displayedColumns = ['Nombre', 'Raza', 'Clase', 'Owner', 'Metodos'];
-  dataSource!: MatTableDataSource<any>;
-  dataSource2!: MatTableDataSource<any>;
   users: Map<string, Users> = new Map<string, Users>();
+  Mypages: number = 1;
+  pages: number = 1;
 
   constructor(public auth: AuthService, private userService: UsersService, private _characterService: CharactersService, private _changeDetectorRefs: ChangeDetectorRef, private _router: Router) { }
 
@@ -26,16 +25,14 @@ export class CharactersComponent implements OnInit {
     this.auth.user$
     .subscribe((profile) => {
       this._characterService.getCharacters().subscribe(data => {
-        this.listCharaceters=data,
-        this.dataSource = new MatTableDataSource (this.listCharaceters);
+        this.listCharaceters=data;
       })
 
       if(profile?.sub!==undefined) {
         userId=profile.sub
       }
       this._characterService.getMyCharacters(userId).subscribe(data2 => {
-        this.listMyCharacters=data2,
-        this.dataSource2 = new MatTableDataSource (this.listMyCharacters);
+        this.listMyCharacters=data2;
       })
     });
 
@@ -55,8 +52,6 @@ export class CharactersComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    this.dataSource2.filter = filterValue.trim().toLowerCase();
   }
 
   deleteCharacter(id: number) {

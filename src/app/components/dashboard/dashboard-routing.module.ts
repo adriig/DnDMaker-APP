@@ -32,7 +32,7 @@ const routes: Routes = [
     { path: 'forum', component: ForumComponent},
     { path: 'games', component: GamesComponent},
     { path: 'games/manage', component: ManagementComponent},
-    { path: 'games/:id', component: GameComponent},
+    { path: 'games/view/:id', component: GameComponent},
     { path: 'characters', component: CharactersComponent},
     { path: 'characters/detail/:id', component: CheckComponent},
     { path: 'characters/create', component: CreateComponent},

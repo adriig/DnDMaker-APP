@@ -1,55 +1,57 @@
-<!-- *ngIf="auth.isAuthenticated$ | async" -->
-<div class="page">
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-    <div class="spacer"></div>
-  
-    <h1 class="main-title">YOUR GAMES</h1>
-  
-    <div class="flex-column">
-      <div class="games">
-        <div class="card">
-          <h1 class="title">GAMES</h1>
-          <table class="games-table">
-            <tr>
-              <th>GAME ID</th>
-              <th>NAME</th>
-              <th>DATE</th>
-              <th>PLAYERS</th>
-              <th></th>
-            </tr>
-  
-            <tr *ngFor="let game of games">
-              <td>{{game._id}}</td>
-              <td>{{game.name}}</td>
-              <td>{{game.createdAt}}</td>
-              <td>{{game.participants.length}}/{{game.maxPlayers}}</td>
-              <td>
-                <mat-icon>settings</mat-icon>
-                <mat-icon (click)="deleteGame(game._id)">delete</mat-icon>
-              </td>
-            </tr>
-          </table>
-        </div>
+<div class="page" *ngIf="auth.isAuthenticated$ | async">
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+
+  <h1 class="main-title">YOUR GAMES</h1>
+
+  <div class="flex-column">
+    <div class="games">
+      <div class="card">
+        <h1 class="title">GAMES</h1>
+        <table class="games-table" *ngIf="getGames().length > 0; else noGames">
+          <tr>
+            <th>GAME ID</th>
+            <th>NAME</th>
+            <th>DATE</th>
+            <th>PLAYERS</th>
+            <th></th>
+          </tr>
+
+          <tr *ngFor="let game of getGames()">
+            <td>{{game._id}}</td>
+            <td>{{game.name}}</td>
+            <td>{{game.createdAt}}</td>
+            <td>{{game.participants.length}}/{{game.maxPlayers}}</td>
+            <td>
+              <mat-icon routerLink="../view/{{game._id}}">settings</mat-icon>
+              <mat-icon (click)="deleteGame(game._id)">delete</mat-icon>
+            </td>
+          </tr>
+        </table>
+        <ng-template #noGames>
+          <p class="subtitle">You have not created any game yet</p>
+        </ng-template>
       </div>
-  
-      <div class="player-games">
-        <div class="create-game card">
-          <h1 class="title">CREATE A GAME</h1>
-          <form [formGroup]="gameForm" (ngSubmit)="createGame()">
-            <p class="subtitle">Game name</p>
-            <input class="game-name" type="text" name="name" id="name" formControlName="name"
-              placeholder="Introduce el nombre del juego..." maxlength="32">
-  
-            <p class="subtitle">Player limit<span class="current-players" id="maxPlayersValue">8</span></p>
-            <input type="range" class="slider" value="8" min="2" max="15" name="maxPlayers" id="maxPlayers"
-              (change)="slider()">
-  
-            <hr style="border: 1px solid rgb(95, 95, 95); margin: 4% 0 4% 0;">
-  
-            <button type="submit" [disabled]="gameForm.invalid" class="create-button">CREATE GAME</button>
-          </form>
-        </div>
+    </div>
+
+    <div class="player-games">
+      <div class="create-game card">
+        <h1 class="title">CREATE A GAME</h1>
+        <form [formGroup]="gameForm" (ngSubmit)="createGame()">
+          <p class="subtitle-form">Game name</p>
+          <input class="game-name" type="text" name="name" id="name" formControlName="name"
+            placeholder="Introduce el nombre del juego..." maxlength="32">
+
+          <p class="subtitle-form">Player limit<span class="current-players" id="maxPlayersValue">8</span></p>
+          <input type="range" class="slider" min="2" max="16" formControlName="maxPlayers" name="maxPlayers" id="maxPlayers"
+            (change)="slider()">
+
+          <hr style="border: 1px solid rgb(95, 95, 95); margin: 4% 0 4% 0;">
+
+          <button type="submit" [disabled]="gameForm.invalid" class="create-button">CREATE GAME</button>
+        </form>
       </div>
     </div>
   </div>
+</div>

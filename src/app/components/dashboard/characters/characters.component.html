@@ -1,10 +1,79 @@
-<div class="contorno">
-    <div class="Spacer"></div>
-    <div class="Spacer"></div>
-    <div class="Spacer"></div>
+<div class="page">
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
 
 
-    <div class="inputs">
+    <h1 class="main-title">CHARACTERS</h1>
+    <div style="text-align:right">
+    <button class="character-button" routerLink="create"  *ngIf="auth.isAuthenticated$ | async">CREATE CHARACTER</button>
+    </div>
+    <div class="flex-column">
+      <div class="games">
+        <div class="card">
+          <h1 class="title">ALL CHARACTERS</h1>
+  
+          <table class="games-table">
+            <th>NAME</th>
+            <th>RACE</th>
+            <th>CLASS</th>
+            <th>OWNER</th>
+            <th><mat-icon>settings</mat-icon></th>
+            <tr *ngFor="let Characters of listCharaceters | paginate: { id: 'pagination1', itemsPerPage: 6, currentPage: pages }">
+              <td>
+                <div class="Contorno">{{ Characters._NombrePersonaje }}</div>
+              </td>
+              <td>
+                <div class="Contorno">{{ Characters._Raza }}</div>
+              </td>
+              <td>
+                <div class="Contorno">{{ Characters._Clase }}</div>
+              </td>
+              <td>
+                <div class="Contorno">{{ resolveUsername(Characters._IdOwner) }}</div>
+              </td>
+              <td>
+                <mat-icon routerLink="detail/{{Characters._id}}">search</mat-icon>
+              </td>
+            </tr>
+          </table>
+          <pagination-controls class="pagination" id="pagination1" (pageChange)="pages = $event"></pagination-controls>
+        </div></div>
+
+            <div class="games" style="margin-left: 4%;">
+              <div class="card">
+                <h1 class="title">YOUR CHARACTERS</h1>
+        
+                <table class="games-table">
+                  <th>NAME</th>
+                  <th>RACE</th>
+                  <th>CLASS</th>
+                  <th>OWNER</th>
+                  <th><mat-icon>settings</mat-icon></th>
+                  <tr *ngFor="let Characters of listMyCharacters | paginate: { id: 'pagination2', itemsPerPage: 6, currentPage: Mypages }">
+                    <td>
+                      <div class="Contorno">{{ Characters._NombrePersonaje }}</div>
+                    </td>
+                    <td>
+                      <div class="Contorno">{{ Characters._Raza }}</div>
+                    </td>
+                    <td>
+                      <div class="Contorno">{{ Characters._Clase }}</div>
+                    </td>
+                    <td>
+                      <div class="Contorno">{{ resolveUsername(Characters._IdOwner) }}</div>
+                    </td>
+                    <td>
+                      <a (click)="deleteCharacter(Characters._id)" matTooltip="Eliminar Usuario" style="cursor: pointer">
+                        <mat-icon>delete</mat-icon>
+                      </a>
+                      <mat-icon routerLink="detail/{{Characters._id}}">search</mat-icon>
+                    </td>
+                  </tr>
+                </table>
+                <pagination-controls class="pagination" id="pagination2" (pageChange)="Mypages = $event"></pagination-controls>
+              </div></div></div></div>
+    <!-- <div class="inputs">
       <input matInput (keyup)="applyFilter($event)" class="character-filter" placeholder="Filter" style="text-align: left;" #input />
       <button class="character-button" routerLink="create"  *ngIf="auth.isAuthenticated$ | async">CREATE CHARACTER</button>
     </div>
@@ -83,91 +152,4 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
        </table>
-    </div>
-
-    <!-- <div class="TitleGen">
-    <div class="ButtonCreate"></div>
-    <div class="Spacer"></div>
-    <div class="TitleBubbles"> <p class="TituloGen"><b>YOUR CHARACTERS</b></p></div>
-    <div class="ButtonCreate"><button mat-raised-button color="primary" class="BotonCreate" routerLink="create">Create Character</button></div></div>
-
-    <mat-form-field appearance="standard">
-        <mat-label><b>Filter</b></mat-label>
-        <input matInput (keyup)="applyFilter($event)" class="character-filter" placeholder="Filter" #input />
-      </mat-form-field>
-      <div class="mat-elevation-z6">
-       
-       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="ListadoPersonajes">
-          <ng-container matColumnDef="Nombre">
-            <th mat-header-cell *matHeaderCellDef class="LetrasTitle">NAME</th>
-            <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._NombrePersonaje }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="Raza">
-            <th mat-header-cell *matHeaderCellDef class="LetrasTitle">RACE</th>
-            <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Raza }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="Clase">
-            <th mat-header-cell *matHeaderCellDef class="LetrasTitle">CLASS</th>
-            <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Clase }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="Metodos">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td mat-cell *matCellDef="let Characters;" style="text-align: right">
-            <span class="material-icons" routerLink="detail/{{Characters._id}}">search</span>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-         </table>
-         
-         
-
-        </div>
-    </div>
-
-    <div class="Spacer"></div>
-
-    
-    <div class="ListBubbles">
-      <br>
-      <div class="TitleGen">
-        <div class="ButtonCreate"></div>
-        <div class="TitleBubbles"> <p class="TituloGen"><b>ALL CHARACTERS</b></p></div>
-        
-        <div class="ButtonCreate"><button mat-raised-button color="primary" class="BotonCreate" routerLink="create">Create Character</button></div></div>
-    <mat-form-field appearance="standard">
-      <mat-label><b>Filter</b></mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input />
-    </mat-form-field>
-    <div class="mat-elevation-z6">
-     
-     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="ListadoPersonajes">
-        <ng-container matColumnDef="Nombre">
-          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">NAME</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._NombrePersonaje }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="Raza">
-          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">RACE</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Raza }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="Clase">
-          <th mat-header-cell *matHeaderCellDef class="LetrasTitle">CLASS</th>
-          <td mat-cell *matCellDef="let Characters" class="Letras">{{ Characters._Clase }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="Metodos">
-          <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let Characters;" style="text-align: right">
-          <span class="material-icons" routerLink="detail/{{Characters._id}}">search</span>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-       </table>
-    </div>
-</div> -->
+    </div> -->

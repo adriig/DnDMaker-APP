@@ -1,111 +1,203 @@
-.Spacer {
-    height: 5%;
-  }
-  
-  .contorno {
-    height: 100%;
-    background-image: url("../../../../../assets/files/characters.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    object-position: -100% 0;
-  }
-  
-  .ListadoPersonajes {
-    height: auto;
-    background: rgb(62, 62, 62);
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  
-  
-  .container {
-    margin-right: 8%;
-    margin-left: 8%;
-    padding: 1% 2% 1% 2%;
-    border-radius: 5px;
-  
-    background-color: rgb(62, 62, 62);
-  }
-  
-  .title {
-    padding: .5%;
-  
-    border-radius: 5px;
-    text-align: center;
-  
-    font-size: 18px;
-    font-weight: bold;
-  
-    color: white;
-    /* background-color: rgb(185, 132, 66); */
-    background-color: rgb(185, 66, 66);
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th {
-    text-align: left;
-    font-size: large;
-    font-weight: bold;
-    color: rgb(185, 66, 66);
-    padding: 1% 0 1% 0;
-  }
-  
-  td {
-    padding: 1% 0 1% 0;
-    color: white;
-  }
-  
-  button {
-    transition: background-color .5s;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: rgb(41, 51, 33);
-  }
-  
-  
-  .character-button {
-    background-color: rgb(102, 123, 83);
-    color: white;
-    font-weight: bold;
-    font-size: large;
-    padding: 1%;
-    margin: 1%;
-  
-    border-radius: 5px;
-    border: none;
-  }
-  
-  .character-filter {
-    color: black;
-  
-    width: 20%;
-    padding: 1%;
-    margin: 1%;
-  
-    border-radius: 5px;
-    border: none;
-  }
-  
-  .inputs {
-    text-align: right;
-    margin-right: 7%;
-    margin-left: 7%;
-  }
-  
-  
+.page {
+  padding: 0 10% 0 10%;
+
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+
+  background-image: url("../../../../../assets/files/characters.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main-title {
+  padding: 2%;
+
+  border-radius: 25px;
+  text-align: center;
+
+  font-size: 50px;
+  font-weight: bold;
+
+  color: white;
+  background-color: rgb(185, 66, 66);
+}
+
+
+
+.character-button {
+  background-color: rgb(102, 123, 83);
+  color: white;
+  font-weight: bold;
+  font-size: large;
+  padding: 1%;
+  margin: 1%;
+
+  border-radius: 5px;
+  border: none;
+}
+
+
+
+.spacer {
+  height: 5%;
+}
+
+.flex-column {
+  display: flex;
+}
+
+.card {
+  padding: 5%;
+  background-color: rgb(62, 62, 62);
+  margin-bottom: 5%;
+}
+
+.games {
+  width: 48%;
+}
+
+.games .card {
+  padding: 2%;
+}
+
+.player-games {
+  margin-left: 2.5%;
+  width: 35%;
+}
+
+.SpaceBetweenRows {
+  width: 100%;
+  background-color: rgb(62, 62, 62);
+  height: 10%;
+}
+
+.title {
+  padding: .5%;
+
+  border-radius: 5px;
+  text-align: center;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  color: white;
+  /* background-color: rgb(185, 132, 66); */
+  background-color: rgb(185, 66, 66);
+}
+
+.likeOption {
+  color: rgb(218, 218, 218);
+  width: 100%;
+  height: 100%;
+  background-color: rgb(90, 90, 90);
+  font-size: 10px;
+  padding-right: 10%;
+}
+
+.likes {
+  height: 50%;
+}
+
+.dislikes {
+  height: 50%;
+}
+
+.Contorno {
+  margin-left: 1%;
+  height: 100%;
+}
+
+.Caratula {
+  display: flex;
+  width: 100%;
+  height: 20%;
+}
+
+.InfoCreacion {
+  text-align: left;
+  width: 90%;
+}
+
+.InfoTipo {
+  border-radius: 25px;
+  background-color: lightblue;
+  width: 10%;
+}
+
+.Tituliti {
+  height: 80%;
+  width: 100%;
+}
+
+.games-table {
+  width: 100%;
+  background-color: rgb(116, 116, 116);
+  border-collapse: collapse;
+}
+
+.games-table th {
+  background-color: rgb(83, 83, 83);
+
+  height: 40px;
+  font-size: 130%;
+  font-weight: bold;
+
+  color: rgb(255, 255, 255);
+}
+
+.games-table td {
+  height: 80px;
+}
+
+.games-table td {
+  border-right: 1px solid rgb(83, 83, 83);
+}
+
+.games-table tr {
+  border-bottom: 1px solid rgb(83, 83, 83);
+}
+
+.game-button-request {
+  width: 80%;
+  height: 80%;
+
+  font-size: 120%;
+  font-weight: bold;
+
+  color: white;
+  border-radius: 10px;
+
+  background-color: rgb(96, 143, 83);
+  border: none;
+  cursor: pointer;
+}
+
+.cancel {
+  background-color: rgb(169, 128, 77);
+}
+
+.game-button-request:active {
+  opacity: .7;
+}
+
+mat-icon {
+  color: rgb(218, 218, 218);
+  cursor: pointer;
+}
+
+.pagination ::ng-deep .ngx-pagination .current {
+  background-color: rgb(116, 116, 116);
+}
+
+.pagination::ng-deep .ngx-pagination a {
+  color: white;
+}
+
+.pagination::ng-deep .ngx-pagination a:hover {
+  color: rgb(62, 62, 62);
+}
+
+.pagination::ng-deep .ngx-pagination .disabled {
+  color: white !important;
+}

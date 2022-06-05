@@ -21,6 +21,8 @@ export class ClassesComponent implements OnInit {
   users: Map<string, Users> = new Map<string, Users>();
   statusClass: Map<number, Boolean> = new Map<number, Boolean>();
   profileId: string = "none"
+  Mypages: number = 1;
+  pages: number = 1;
 
   constructor(public auth: AuthService, private userService: UsersService, private _classService: ClassesServiceService, private _changeDetectorRefs: ChangeDetectorRef, private _router: Router) { }
 

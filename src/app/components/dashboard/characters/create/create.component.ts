@@ -45,7 +45,7 @@ export class CreateComponent implements OnInit {
       Clase: ['', Validators.required],
       Hechizos: ['', Validators.required],
       Estadisticas: ['', Validators.required],
-      Habilidades: ['', Validators.required],
+      Habilidades: ['', Validators.required]
     })
     this.id = Math.floor(Math.random() * (999999999999 - 1) + 2);
   }

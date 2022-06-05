@@ -34,7 +34,7 @@
 .card {
     padding: 5%;
     background-color: rgb(62, 62, 62);
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .games {
@@ -53,8 +53,9 @@
 .SpaceBetweenRows {
     width: 100%;
     background-color: rgb(62, 62, 62);
-    height: 10%;
+    height: 1%;
 }
+
 .title {
     padding: .5%;
 
@@ -90,6 +91,7 @@
     margin-left: 1%;
     height: 100%;
 }
+
 .Caratula {
     display: flex;
     width: 100%;
@@ -103,6 +105,7 @@
 
 .InfoTipo {
     border-radius: 25px;
+    font-size: small;
     background-color: lightblue;
     width: 10%;
 }
@@ -121,7 +124,7 @@
 .games-table th {
     background-color: rgb(83, 83, 83);
 
-    height: 40px;
+    height: 30px;
     font-size: 130%;
     font-weight: bold;
 
@@ -129,12 +132,9 @@
 }
 
 .games-table td {
-    height: 80px;
+    height: 35px;
 }
 
-.games-table td {
-    border-right: 1px solid rgb(83, 83, 83);
-}
 
 .games-table tr {
     border-bottom: 1px solid rgb(83, 83, 83);
@@ -163,7 +163,23 @@
     opacity: .7;
 }
 
+.pagination ::ng-deep .ngx-pagination .current {
+    background-color: rgb(116, 116, 116);
+}
+
+.pagination::ng-deep .ngx-pagination a {
+    color: white;
+}
+
+.pagination::ng-deep .ngx-pagination a:hover {
+    color: rgb(62, 62, 62);
+}
+
+.pagination::ng-deep .ngx-pagination .disabled {
+    color: white !important;
+}
+
 mat-icon {
-    color: rgb(218, 218, 218);
+    color: rgb(128, 128, 128);
     cursor: pointer;
-  }
+}

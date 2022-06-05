@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DnDMaker-APP';
+
+
+constructor() {
+
+}
+
+ngOnInit(): void {
+  let bodyStyle = document.body.style;
+  bodyStyle.backgroundImage = "url('../../../../../assets/files/characters.jpg')";
+  bodyStyle.backgroundRepeat = "no-repeat"
+  bodyStyle.backgroundAttachment = "fixed"
+  bodyStyle.backgroundSize = "cover"
+}
+
 }

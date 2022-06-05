@@ -10,48 +10,81 @@
       <div class="card">
         <h1 class="title">GAMES</h1>
 
-        <table class="games-table">
+        <table class="games-table" *ngIf="games.length > 0; else noGames">
           <tr>
             <th>GAME ID</th>
             <th>PLAYERS</th>
-            <th>JOIN</th>
+            <th *ngIf="auth.isAuthenticated$ | async">JOIN</th>
           </tr>
 
           <tr *ngFor="let game of games">
             <td>{{game._id}}</td>
-            <td>{{game.participants.length}}/15</td>
+            <td>{{game.participants.length}}/{{game.maxPlayers}}</td>
             <td *ngIf="auth.isAuthenticated$ | async">
-              <button *ngIf="!hasPlayerRequestedJoinGame(game._id); else cancelButton" class="game-button-request"
-                (click)="createGameRequest(game._id)">Request</button>
+              <button *ngIf="isOwner(game, profileId); else requestButtonDisabled" class="game-button-request" disabled>Request</button>
+              <ng-template #requestButtonDisabled>
+                <button *ngIf="existsParticipant(game); else requestButton" class="game-button-request leave"
+                  (click)="leaveGame(game)">Leave</button> 
+              </ng-template>
+              <ng-template #requestButton>
+                <button *ngIf="!hasPlayerRequestedJoinGame(game._id); else cancelButton" class="game-button-request"
+                  (click)="createGameRequest(game)">Request</button>
+              </ng-template>
               <ng-template #cancelButton>
                 <button class="game-button-request cancel" (click)="cancelGameRequest(game._id)">Cancel</button>
               </ng-template>
             </td>
           </tr>
         </table>
+        <ng-template #noGames>
+          <p class="subtitle">There are no available games yet</p>
+        </ng-template>
       </div>
     </div>
+
     <div class="player-games">
       <div *ngIf="auth.isAuthenticated$ | async">
         <div class="your-games card">
           <h1 class="title">YOUR GAMES</h1>
-          <table class="games-table">
+          <table class="games-table" *ngIf="playerGames.length > 0; else noPlayerGames">
             <tr>
               <th>GAME ID</th>
               <th>PLAYERS</th>
             </tr>
-            <tr>
-              <td>7d94867b-160f-4e54-b195-6298c62667f4</td>
-              <td>0/15</td>
+            <tr *ngFor="let game of playerGames">
+              <td>{{game._id}}</td>
+              <td>{{game.participants.length}}/{{game.maxPlayers}}</td>
             </tr>
           </table>
+          <ng-template #noPlayerGames>
+            <p class="subtitle">You have not created any game yet</p>
+          </ng-template>
+          <h1 *ngIf="totalPlayerGames > 0" class="subtitle">Another <span>{{totalPlayerGames}}</span> game(s) to be
+            displayed...</h1>
           <button routerLink="manage" class="manage">
             MANAGE YOUR GAMES
           </button>
         </div>
       </div>
+
       <div class="invitations card">
-        <h1 class="title">INVITATIONS</h1>
+        <h1 class="title">INVITES</h1>
+        <table class="games-table" *ngIf="invites.length > 0; else noInvites">
+          <tr>
+            <th colspan="2">GAME ID</th>
+          </tr>
+          <tr *ngFor="let invite of invites">
+            <td>{{invite.gameId}}</td>
+            <td>
+              <mat-icon style="color: rgb(154, 186, 152);" (click)="acceptInvite(invite)">check_circle</mat-icon>
+              <mat-icon></mat-icon>
+              <mat-icon style="color: rgb(197, 91, 91);" (click)="declineInvite(invite)">cancel</mat-icon>
+            </td>
+          </tr>
+        </table>
+        <ng-template #noInvites>
+          <p class="subtitle">You do not have any invites</p>
+        </ng-template>
       </div>
     </div>
   </div>

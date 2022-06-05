@@ -38,7 +38,8 @@
 
 
             <div class="mb-2">
-              <input class="loreField" type="text" name="Lore" id="Lore" formControlName="Personalidad" placeholder="Historia del personaje..."maxlength="128">
+              <textarea class="loreField" name="Lore" id="Lore" formControlName="Lore" placeholder="Historia del personaje..."maxlength="128" rows="4" cols="50">
+                </textarea>
               <div class="text-danger" *ngIf="characterForm.get('Personalidad')?.hasError('required') && characterForm.get('Personalidad')?.touched">
                 <span>Inserte historia del personaje</span>
               </div>
@@ -46,16 +47,18 @@
 
           </div>
 
-          <div class="divLore">
+          <div class="divLore" style="text-align: center; margin-left: 1%;">
 
             <p class="title"><b>CUSTOMIZATION INFO</b></p>
-             <select formControlName="Raza" (change)="changeRace($event)" class="form-control">
-                <option [value]="race._id" *ngFor="let race of listRaces" >
+            <p class="titulillo">RACE SELECTION</p>
+             <select formControlName="Raza" (change)="changeRace($event)" class="optionsje">
+                <option [value]="race._id" *ngFor="let race of listRaces" class="opt">
                   {{race._NombreRaza}}
                 </option>
-              </select><br><br>
+              </select><br><br><br>
 
-              <select formControlName="Clase" (change)="changeClass($event)" class="form-control">
+              <p class="titulillo">CLASS SELECTION</p>
+              <select formControlName="Clase" (change)="changeClass($event)" class="optionsje">
                 <option [value]="class._id" *ngFor="let class of listClasses" >
                   {{class._Nombre}}
                 </option>
@@ -74,7 +77,7 @@
 
           </div>
 
-          <div class="divLore">
+          <div class="divLore" style="margin-left: 1%;">
 
             <p class="title"><b>EXTRA INFO</b></p>
             <div class="mb-2">
