@@ -18,7 +18,7 @@
           <th>DESCRIPTION</th>
           <th>OWNER</th>
           <th><span class=material-icons>settings</span></th>
-          <tr *ngFor="let Classes of listClasses | paginate: { id: 'pagination1', itemsPerPage: 4, currentPage: pages }">
+          <tr *ngFor="let Classes of listClasses | paginate: { id: 'pagination1', itemsPerPage: 8, currentPage: pages }">
             <td>
               <div class="Contorno">{{ Classes._Nombre }}</div>
             </td>
@@ -53,7 +53,7 @@
                 <th>DESCRIPTION</th>
                 <th>OWNER</th>
                 <th><span class=material-icons>settings</span></th>
-                <tr *ngFor="let Classes of listMyClasses | paginate: { id: 'pagination2', itemsPerPage: 4, currentPage: Mypages }">
+                <tr *ngFor="let Classes of listMyClasses | paginate: { id: 'pagination2', itemsPerPage: 8, currentPage: Mypages }">
                   <td>
                     <div class="Contorno">{{ Classes._Nombre }}</div>
                   </td>

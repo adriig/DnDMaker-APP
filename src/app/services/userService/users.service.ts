@@ -43,4 +43,21 @@ export class UsersService {
   getClassesOfUser(id: string): Observable<any> {
     return this.http.get(`${this.url}/Users/getClasses/${id}`)
   }
+
+  deleteRace(id: string, idValue: number) {
+    return this.http.get(`${this.url}/Users/deleteRaceInUser/${id}/${idValue}`)
+  }
+
+  addRaces(id: string, idValue: number) {
+    var map = new Map();
+    return this.http.put(`${this.url}/Users/addRaces/${id}/${idValue}`, map)
+  }
+
+  checkIfRacesExists(id: string, idValue: number) {
+    return this.http.get(`${this.url}/Users/existRaceInUser/${id}/${idValue}`)
+  }
+
+  getRacesOfUser(id: string): Observable<any> {
+    return this.http.get(`${this.url}/Users/getRaces/${id}`)
+  }
 }

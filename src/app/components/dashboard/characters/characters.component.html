@@ -19,7 +19,7 @@
             <th>CLASS</th>
             <th>OWNER</th>
             <th><mat-icon>settings</mat-icon></th>
-            <tr *ngFor="let Characters of listCharaceters | paginate: { id: 'pagination1', itemsPerPage: 6, currentPage: pages }">
+            <tr *ngFor="let Characters of listCharaceters | paginate: { id: 'pagination1', itemsPerPage: 8, currentPage: pages }">
               <td>
                 <div class="Contorno">{{ Characters._NombrePersonaje }}</div>
               </td>
@@ -50,7 +50,7 @@
                   <th>CLASS</th>
                   <th>OWNER</th>
                   <th><mat-icon>settings</mat-icon></th>
-                  <tr *ngFor="let Characters of listMyCharacters | paginate: { id: 'pagination2', itemsPerPage: 6, currentPage: Mypages }">
+                  <tr *ngFor="let Characters of listMyCharacters | paginate: { id: 'pagination2', itemsPerPage: 8, currentPage: Mypages }">
                     <td>
                       <div class="Contorno">{{ Characters._NombrePersonaje }}</div>
                     </td>

@@ -15,9 +15,6 @@ import { UsersService } from 'src/app/services/userService/users.service';
 export class ClassesComponent implements OnInit {
   listClasses: Clase[] = [];
   listMyClasses: Clase[] = [];
-  displayedColumns = ['Nombre', 'Descripcion', 'Owner', 'Metodos'];
-  dataSource!: MatTableDataSource<any>;
-  dataSource2!: MatTableDataSource<any>;
   users: Map<string, Users> = new Map<string, Users>();
   statusClass: Map<number, Boolean> = new Map<number, Boolean>();
   profileId: string = "none"
@@ -35,24 +32,16 @@ export class ClassesComponent implements OnInit {
       this.profileId=userId
     }
     this._classService.getClasses().subscribe(data => {
-      this.listClasses=data,
-      this.dataSource = new MatTableDataSource (this.listClasses);
+      this.listClasses=data
       for (const key in this.listClasses) {
         this.userService.checkIfClassExists(userId, this.listClasses[key]._id).subscribe(data => {
           this.statusClass.set(this.listClasses[key]._id, Boolean(data));
           })
         }
       })
-  
-      // data.forEach(clase => {
-      //   this.userService.checkIfClassExists(userId, clase._id).subscribe(data => {
-          
-      //   })
-      // });
      
     this._classService.getMyClasses(userId).subscribe(data2 => {
-      this.listMyClasses=data2,
-      this.dataSource2 = new MatTableDataSource (this.listMyClasses);
+      this.listMyClasses=data2
     })
   });
 
@@ -73,8 +62,6 @@ export class ClassesComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    this.dataSource2.filter = filterValue.trim().toLowerCase();
   }
 
   deleteClasses(id: number) {

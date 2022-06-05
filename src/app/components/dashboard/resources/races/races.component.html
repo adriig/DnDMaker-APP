@@ -1,4 +1,80 @@
-<div class="contorno">
+<div class="page">
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
+
+
+  <h1 class="main-title">RACES</h1>
+  <div style="text-align:right">
+  <button class="character-button" routerLink="create"  *ngIf="auth.isAuthenticated$ | async">CREATE RACES</button>
+  </div>
+  <div class="flex-column">
+    <div class="games">
+      <div class="card">
+        <h1 class="title">ALL RACES</h1>
+
+        <table class="games-table">
+          <th>NAME</th>
+          <th>ORIGIN</th>
+          <th>OWNER</th>
+          <th><span class=material-icons>settings</span></th>
+          <tr *ngFor="let Races of listRaces | paginate: { id: 'pagination1', itemsPerPage: 8, currentPage: pages }">
+            <td>
+              <div class="Contorno">{{ Races._NombreRaza }}</div>
+            </td>
+            <td>
+              <div class="Contorno">{{ Races._Origen }}</div>
+            </td>
+            <td>
+              <div class="Contorno">{{ resolveUsername(Races._IdOwner) }}</div>
+            </td>
+            <td>
+              <div *ngIf="!checkOwner(Races._IdOwner)" style="display: inline">
+                <a class="pointer" (click)="addRaceToUser(Races._id)" matTooltip="Agregar clase" style="cursor: pointer" *ngIf="checkRaces(Races._id)==false">
+                  <mat-icon>download</mat-icon>
+                </a>
+                <a class="pointer" (click)="removeRaceInUser(Races._id)" matTooltip="Agregar clase" style="cursor: pointer" *ngIf="checkRaces(Races._id)==true">
+                  <mat-icon>clear</mat-icon>
+                </a>
+              </div>
+              <mat-icon routerLink="detail/{{Races._id}}">search</mat-icon>
+            </td>
+          </tr>
+        </table>
+        <pagination-controls id="pagination1" class="pagination" (pageChange)="pages = $event"></pagination-controls>
+      </div></div>
+
+          <div class="games" style="margin-left: 4%;">
+            <div class="card">
+              <h1 class="title">YOUR Races</h1>
+      
+              <table class="games-table">
+                <th>NAME</th>
+                <th>ORIGIN</th>
+                <th>OWNER</th>
+                <th><span class=material-icons>settings</span></th>
+                <tr *ngFor="let Races of listMyRaces | paginate: { id: 'pagination2', itemsPerPage: 8, currentPage: Mypages }">
+                  <td>
+                    <div class="Contorno">{{ Races._NombreRaza }}</div>
+                  </td>
+                  <td>
+                    <div class="Contorno">{{ Races._Origen }}</div>
+                  </td>
+                  <td>
+                    <div class="Contorno">{{ resolveUsername(Races._IdOwner) }}</div>
+                  </td>
+                  <td>
+                    <a (click)="deleteRaces(Races._id)" matTooltip="Eliminar Usuario" style="cursor: pointer">
+                      <mat-icon>delete</mat-icon>
+                    </a>
+                    <mat-icon routerLink="detail/{{Races._id}}">search</mat-icon>
+                  </td>
+                </tr>
+              </table>
+              <pagination-controls id="pagination2" class="pagination" (pageChange)="Mypages = $event"></pagination-controls>
+            </div></div></div></div>
+
+<!-- <div class="contorno">
     <div class="Spacer"></div>
     <div class="Spacer"></div>
     <div class="Spacer"></div>
@@ -59,4 +135,6 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
        </table>
-    </div>
+    </div> -->
+
+  
