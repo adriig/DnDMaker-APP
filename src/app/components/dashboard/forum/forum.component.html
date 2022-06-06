@@ -73,17 +73,18 @@
         <div class="your-games card">
           <h1 class="title">CREATE POST</h1>
           <form [formGroup]="postForm" (ngSubmit)="createPost()">
-            <input class="game-titulo" type="text" name="titulo" id="titulo" formControlName="titulo"
+            <input class="game-name" type="text" name="titulo" id="titulo" formControlName="titulo"
               placeholder="Introduce el titulo del post..." maxlength="16">
 
-            <input class="game-titulo" type="text" name="texto" id="texto" formControlName="texto"
-              placeholder="Introduce el texto del post..." maxlength="64">
+              <select id="cars" name="tipo" id="tipo" formControlName="tipo" class="optButton">
+                <option value="Opinion">Opinion</option>
+                <option value="Suggestion">Suggestion</option>
+                <option value="Meeting">Meeting</option>
+              </select>
 
-            <select id="cars" name="tipo" id="tipo" formControlName="tipo">
-              <option value="Opinion">Opinion</option>
-              <option value="Suggestion">Suggestion</option>
-              <option value="Meeting">Meeting</option>
-            </select>
+              <br>
+            <textarea class="loreField" name="texto" id="texto" formControlName="texto" placeholder="Introduce el texto del post..."maxlength="128" rows="4" cols="50"></textarea>
+
 
             <!-- <select formControlName="Raza" (change)="changeRace($event)" class="form-control">
                     <option [value]="race._id" *ngFor="let race of listRaces" >

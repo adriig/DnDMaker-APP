@@ -17,8 +17,9 @@ export class Personaje {
     public _Hechizos: Hechizos;
     public _Estadisticas: Estadisticas;
     public _Habilidades: Habilidades;
+    public _ImagePath: string;
 
-    public constructor(id: number, NombrePersonaje: string, Alineacion: string, Lore: string, IdOwner: string, Personalidad: string, Raza: Raza, Clase: Clase, Hechizos: Hechizos, Estadisticas: Estadisticas, Habilidades: Habilidades) {
+    public constructor(id: number, NombrePersonaje: string, Alineacion: string, Lore: string, IdOwner: string, Personalidad: string, Raza: Raza, Clase: Clase, Hechizos: Hechizos, Estadisticas: Estadisticas, Habilidades: Habilidades, ImagePath: string) {
         this._id=id
         this._NombrePersonaje=NombrePersonaje;
         this._Alineacion = Alineacion;
@@ -30,5 +31,6 @@ export class Personaje {
         this._Hechizos = Hechizos
         this._Estadisticas = Estadisticas
         this._Habilidades = Habilidades
+        this._ImagePath=ImagePath
     }
 }

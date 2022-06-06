@@ -26,7 +26,7 @@ export class CheckComponent implements OnInit {
     if(id!=null) {
      this._characterService.searchCharacter(parseInt(id)).subscribe(data => {
        console.log(data);
-       this.MiCharacter = new Personaje(data._id, data._NombrePersonaje, data._Alineacion, data._Lore, data._IdOwner, data._Personalidad, data._Raza, data._Clase, data._Hechizos, data._Hechizos, data._Habilidades);
+       this.MiCharacter = new Personaje(data._id, data._NombrePersonaje, data._Alineacion, data._Lore, data._IdOwner, data._Personalidad, data._Raza, data._Clase, data._Hechizos, data._Hechizos, data._Habilidades, data._ImagePath);
      })
   }
 }

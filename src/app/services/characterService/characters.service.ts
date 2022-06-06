@@ -21,8 +21,8 @@ export class CharactersService {
     return this.http.get(`${this.url}/characters/getmy/${idOwner}`);
   }
 
-  addCharacter (Character: Personaje) {
-    return this.http.post(`${this.url}/characters/add/`, Character);
+  addCharacter (Character: Personaje, image: File) {
+    return this.http.post(`${this.url}/characters/add/`, CharacterData);
   }
 
   deleteCharacter(id: number): Observable<any> {

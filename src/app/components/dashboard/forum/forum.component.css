@@ -154,6 +154,44 @@
     cursor: pointer;
 }
 
+.game-name {
+    margin-bottom: 3%;
+    text-indent: 2%;
+  
+    width: 50%;
+    height: 20px;
+  
+    font-size: 100%;
+  
+    color: black;
+    border-radius: 10px;
+  
+    border: none;
+  }
+
+  .optButton {
+      margin-left: 5%;
+      height: 20px;
+      width: 40%;
+  }
+
+  .loreField {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 3%;
+    text-indent: 2%;
+    border-radius: 10px;
+  
+    width: 90%;
+    height: 40px;
+  
+    font-size: 100%;
+  
+    color: black;
+    border-radius: 10px;
+  
+    border: none;
+  }
+
 .cancel {
     background-color: rgb(169, 128, 77);
 }
