@@ -120,6 +120,10 @@
                   <input type="file" (change)="onFileSelect($event)"/>
                 </div>
 
+                <div class="preview-img" *ngIf="previsualizacion">
+                  <img  [src]="previsualizacion" alt="">
+              </div>
+
             </div>
           </div>
         </form>

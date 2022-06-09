@@ -24,7 +24,7 @@ export class CheckComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get("id");
     console.log("Id del coso:"+id)
     if(id!=null) {
-     this._characterService.searchCharacter(parseInt(id)).subscribe(data => {
+     this._characterService.searchCharacter(id).subscribe(data => {
        console.log(data);
        this.MiCharacter = new Personaje(data._id, data._NombrePersonaje, data._Alineacion, data._Lore, data._IdOwner, data._Personalidad, data._Raza, data._Clase, data._Hechizos, data._Hechizos, data._Habilidades, data._ImagePath);
      })

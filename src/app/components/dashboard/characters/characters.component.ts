@@ -54,7 +54,7 @@ export class CharactersComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
   }
 
-  deleteCharacter(id: number) {
+  deleteCharacter(id: string) {
     if (confirm('Are you sure you want to delete this character?')) {
       this._characterService.deleteCharacter(id). subscribe(data => {
         console.log(data);

@@ -9,6 +9,9 @@ import { UsersService } from 'src/app/services/userService/users.service';
 import { AuthService } from '@auth0/auth0-angular';
 import { Raza } from 'src/app/models/races/races'
 import { Clase } from 'src/app/models/classes/class';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ImagesService } from 'src/app/services/imageService/images.service'
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-create',
@@ -18,15 +21,17 @@ import { Clase } from 'src/app/models/classes/class';
 
 
 export class CreateComponent implements OnInit {
+  previsualizacion: string = "";
   listRaces: Raza[] = [];
   listClasses: Clase[] = [];
   titulo = 'Creating character'
   characterForm: FormGroup;
-  id: number;
+  id: string;
   SelectedClass: any;
   SelectedRace: any;
-  selectedFile : any;
+  selectedFile : string ="";
   imageData: string = "";
+  imagenes: any = []
 
   changeClass(e: any) {
     this.SelectedClass = e.target.value
@@ -34,29 +39,48 @@ export class CreateComponent implements OnInit {
   changeRace(e: any) {
     this.SelectedRace = e.target.value
   }
-  onFileChanged(event: any) {
-    this.selectedFile = event.target.files[0]
-    if (event.target.files) {
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files)
-    }
-  }
+  // onFileChanged(event: any) {
+  //   this.selectedFile = event.target.files[0]
+  //   if (event.target.files) {
+  //     var reader = new FileReader();
+  //     reader.readAsDataURL(event.target.files)
+  //   }
+  // }
 
   onFileSelect(event: any) {
     this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile)
-  //   this.characterForm.patchValue({ image: file });
-  //   const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
-  //   if (file && allowedMimeTypes.includes(file.type)) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       this.imageData = reader.result as string;
-  //     };
-  //     reader.readAsDataURL(file);
-  // }
+    this.extraerBase64(this.selectedFile).then((imagen: any) => {
+      this.previsualizacion = imagen.base;
+      console.log(imagen);
+
+    })
+    this.imagenes.push(this.selectedFile)
   }
 
-  constructor(private fb: FormBuilder, private aRouter: ActivatedRoute, private characterService: CharactersService, private RaceService: RacesServiceService, private ClassService: ClassesServiceService, private userService: UsersService, public auth: AuthService) {
+  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
+    try {
+      const unsafeImg = window.URL.createObjectURL($event);
+      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      const reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          base: null
+        });
+      };
+
+    } catch (e) {
+      return null;
+    }
+    return null
+  })
+
+  constructor(private imageService: ImagesService, private sanitizer: DomSanitizer, private fb: FormBuilder, private aRouter: ActivatedRoute, private characterService: CharactersService, private RaceService: RacesServiceService, private ClassService: ClassesServiceService, private userService: UsersService, public auth: AuthService) {
     this.characterForm = this.fb.group({
       nombre: ['', Validators.required],
       alineacion: ['', Validators.required],
@@ -68,7 +92,7 @@ export class CreateComponent implements OnInit {
       Estadisticas: ['', Validators.required],
       Habilidades: ['', Validators.required]
     })
-    this.id = Math.floor(Math.random() * (999999999999 - 1) + 2);
+    this.id = uuidv4();
   }
 
   ngOnInit(): void {
@@ -111,16 +135,20 @@ export class CreateComponent implements OnInit {
         }
         if (this.characterForm.get('nombre')?.value !== undefined && this.characterForm.get('alineacion')?.value !== undefined && this.characterForm.get('Lore')?.value !== undefined, this.characterForm.get('Personalidad')?.value !== undefined, this.characterForm.get('Raza')?.value !== undefined, this.characterForm.get('Clase')?.value !== undefined, this.characterForm.get('Hechizos')?.value !== undefined, this.characterForm.get('Estadisticas')?.value !== undefined, this.characterForm.get('Habilidades')?.value !== undefined) {
           const Character = new Personaje(this.id, this.characterForm.get('nombre')?.value, this.characterForm.get('alineacion')?.value, this.characterForm.get('Lore')?.value, userId, this.characterForm.get('Personalidad')?.value, this.characterForm.get('Raza')?.value, this.characterForm.get('Clase')?.value, this.characterForm.get('Hechizos')?.value, this.characterForm.get('Estadisticas')?.value, this.characterForm.get('Habilidades')?.value, "")
-          // this.characterService.addCharacter(Character, this.selectedFile).subscribe()
-
-          const CharacterData= new FormData();
-          CharacterData.append("id", Character._id+"")
-          CharacterData.append("image", this.selectedFile, Character._id+"")
-          console.log(CharacterData)
+          this.characterService.addCharacter(Character).subscribe()
+          this.imageService.post
+          // const CharacterData= new FormData();
+          // CharacterData.append("id", Character._id+"")
+          // CharacterData.append("image", this.selectedFile, Character._id+"")
+          // console.log(CharacterData.get)
 
           const fd = new FormData()
+          fd.append('files', this.selectedFile)
+          fd.append('_id', this.id)
+          console.log(fd)
+          console.log("id: "+this.id+"files: "+this.selectedFile)
+          this.imageService.post(this.id, this.selectedFile).subscribe()
           this.characterForm.reset()
-          console.log(profile?.sub)
         }
       });
   }

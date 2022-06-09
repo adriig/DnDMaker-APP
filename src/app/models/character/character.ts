@@ -6,7 +6,7 @@ import { Raza } from "../races/races";
 import { Hechizos } from "../spells/spell";
 
 export class Personaje {
-    public _id: number
+    public _id: string
     public _NombrePersonaje: string;
     public _Alineacion: string;
     public _Lore: string;
@@ -19,7 +19,7 @@ export class Personaje {
     public _Habilidades: Habilidades;
     public _ImagePath: string;
 
-    public constructor(id: number, NombrePersonaje: string, Alineacion: string, Lore: string, IdOwner: string, Personalidad: string, Raza: Raza, Clase: Clase, Hechizos: Hechizos, Estadisticas: Estadisticas, Habilidades: Habilidades, ImagePath: string) {
+    public constructor(id: string, NombrePersonaje: string, Alineacion: string, Lore: string, IdOwner: string, Personalidad: string, Raza: Raza, Clase: Clase, Hechizos: Hechizos, Estadisticas: Estadisticas, Habilidades: Habilidades, ImagePath: string) {
         this._id=id
         this._NombrePersonaje=NombrePersonaje;
         this._Alineacion = Alineacion;
