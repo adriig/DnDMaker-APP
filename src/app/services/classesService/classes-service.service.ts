@@ -6,7 +6,8 @@ import { Clase } from 'src/app/models/classes/class'
   providedIn: 'root'
 })
 export class ClassesServiceService {
-  url='http://localhost:3000'
+  //url='http://localhost:3000'
+  url=' https://pruebaapioni.herokuapp.com'
   constructor(private http: HttpClient) { }
   getClasses(): Observable<any> {
     return this.http.get(`${this.url}/Classes/get`);

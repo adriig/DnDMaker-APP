@@ -1,109 +1,129 @@
+.contorno {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-position: -100% 0;
+}
+
 .Spacer {
-    height: 5%;
-  }
-  
-  .contorno {
-    height: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    object-position: -100% 0;
-  }
-  
-  .ListadoPersonajes {
-    height: auto;
-    background: rgb(62, 62, 62);
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  
-  .container {
-    margin-right: 8%;
-    margin-left: 8%;
-    padding: 1% 2% 1% 2%;
-    border-radius: 5px;
-  
-    background-color: rgb(62, 62, 62);
-  }
-  
-  .title {
-    padding: .5%;
-  
-    border-radius: 5px;
-    text-align: center;
-  
-    font-size: 18px;
-    font-weight: bold;
-  
-    color: white;
-    /* background-color: rgb(185, 132, 66); */
-    background-color: rgb(185, 66, 66);
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th {
-    text-align: left;
-    font-size: large;
-    font-weight: bold;
-    color: rgb(185, 66, 66);
-    padding: 1% 0 1% 0;
-  }
-  
-  td {
-    padding: 1% 0 1% 0;
-    color: white;
-  }
-  
-  button {
-    transition: background-color .5s;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: rgb(41, 51, 33);
-  }
-  
-  
-  .character-button {
-    background-color: rgb(102, 123, 83);
-    color: white;
-    font-weight: bold;
-    font-size: large;
-    padding: 1%;
-    margin: 1%;
-  
-    border-radius: 5px;
-    border: none;
-  }
-  
-  .character-filter {
-    color: black;
-  
-    width: 20%;
-    padding: 1%;
-    margin: 1%;
-  
-    border-radius: 5px;
-    border: none;
-  }
-  
-  .inputs {
-    text-align: right;
-    margin-right: 7%;
-    margin-left: 7%;
-  }
-  
-  
+  height: 5%;
+}
+
+.ListBubbles {
+  display: block;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: auto;
+  background-color: rgb(131, 129, 129);
+  border: black 3px solid;
+}
+
+.main {
+  display: flex;
+}
+
+
+.TitleGen {
+  display: block;
+  width: 90%;
+  height: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.TitleBubbles {
+  margin-top: 1%;
+  display: block;
+  width: 100%;
+  margin-left: 0px;
+  text-align: left;
+  font-size: x-large;
+  color: white(253, 47, 47);
+}
+
+.TituloGen {
+  text-align: center;
+  font-size: large;
+  color: rgb(253, 47, 47);
+}
+
+
+
+
+.characterFields {
+  margin-bottom: 4%;
+  text-indent: 2%;
+
+  width: 100%;
+  height: 50px;
+
+  font-size: 100%;
+
+  color: black;
+  border-radius: 10px;
+
+  border: none;
+}
+
+.loreField {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 4%;
+  text-indent: 2%;
+
+  width: 100%;
+  height: 150px;
+
+  font-size: 100%;
+
+  color: black;
+  border-radius: 10px;
+
+  border: none;
+}
+
+.divLore {
+  width: 40%;
+  height: 100%;
+}
+
+
+.titulillo {
+  padding: .5%;
+
+  border-radius: 5px;
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  color: white;
+  /* background-color: rgb(185, 132, 66); */
+}
+
+.optionsje {
+  width: 50%;
+  padding: 4px;
+  line-height: 1;
+  background-color: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  -webkit-transition: 0.35s ease-in-out;
+  -moz-transition: 0.35s ease-in-out;
+  -o-transition: 0.35s ease-in-out;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+
+.title {
+  padding: .5%;
+
+  border-radius: 5px;
+  text-align: center;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  color: white;
+  /* background-color: rgb(185, 132, 66); */
+  background-color: rgb(185, 66, 66);
+}

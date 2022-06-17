@@ -6,7 +6,8 @@ import { Personaje } from '../../models/character/character'
   providedIn: 'root'
 })
 export class CharactersService {
-  url='http://localhost:3000'
+  //url='http://localhost:3000'
+  url=' https://pruebaapioni.herokuapp.com'
   constructor(private http: HttpClient) { }
   getCharacters(): Observable<any> {
     return this.http.get(`${this.url}/characters/get`);

@@ -9,7 +9,8 @@ import { GameInvite } from 'src/app/models/game/gameInvite';
   providedIn: 'root'
 })
 export class GamesService {
-  url = 'http://localhost:3000'
+  //url = 'http://localhost:3000'
+  url=' https://pruebaapioni.herokuapp.com'
 
   constructor(private http: HttpClient) { }
 

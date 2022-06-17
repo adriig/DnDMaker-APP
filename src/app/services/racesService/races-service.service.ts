@@ -6,7 +6,8 @@ import { Raza } from '../../models/races/races'
   providedIn: 'root'
 })
 export class RacesServiceService {
-  url='http://localhost:3000'
+  //url='http://localhost:3000'
+  url=' https://pruebaapioni.herokuapp.com'
   constructor(private http: HttpClient) { }
   getRaces(): Observable<any> {
     return this.http.get(`${this.url}/Razas/get`);

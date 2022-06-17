@@ -5,7 +5,8 @@ import { Images } from 'src/app/models/images/image';
   providedIn: 'root'
 })
 export class ImagesService {
-  url='http://localhost:3000'
+  //url='http://localhost:3000'
+  url=' https://pruebaapioni.herokuapp.com'
   constructor(private http: HttpClient) { }
 
   public get(id:string){

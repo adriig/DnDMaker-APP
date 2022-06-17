@@ -11,6 +11,7 @@ import { UsersService } from 'src/app/services/userService/users.service';
 export class ProfileComponent implements OnInit {
   myUser: Users[] = [];
   public profileJson: string = "";
+  profileId: string = "none";
   constructor(public auth: AuthService, private userService: UsersService) {
 
   }
@@ -20,6 +21,7 @@ export class ProfileComponent implements OnInit {
       let userId: string
       if(profile?.sub !== undefined) {
         userId = profile.sub
+        this.profileId = profile.sub
       } else {
         userId = "1020202"
       }

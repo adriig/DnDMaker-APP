@@ -6,7 +6,8 @@ import { Users } from '../../models/users/user'
   providedIn: 'root'
 })
 export class UsersService {
-  url='http://localhost:3000'
+  //url='http://localhost:3000'
+  url=' https://pruebaapioni.herokuapp.com'
   constructor(private http: HttpClient) { }
   getUsers(): Observable<any> {
     return this.http.get(`${this.url}/Users/get`);

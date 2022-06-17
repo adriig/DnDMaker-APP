@@ -7,7 +7,8 @@ import { Comments } from 'src/app/models/posts/comments';
   providedIn: 'root'
 })
 export class PostsService {
-  url='http://localhost:3000'
+  //url='http://localhost:3000'
+  url=' https://pruebaapioni.herokuapp.com'
   constructor(private http: HttpClient) { }
   getPosts(): Observable<any> {
     return this.http.get(`${this.url}/Posts/get`);
